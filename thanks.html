@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Thank you for your interest in Forgotten Stove. Explore our cooking safety prototype and upcoming pilot programs.">
+  <title>Interest Saved — Forgotten Stove</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <style>
+    :root{--bg:#0f172a;--deep:#090f1d;--panel:#151f33;--panel2:#1c2840;--ink:#f8fafc;--muted:#b1bdcf;--subtle:#8493aa;--line:rgba(175,193,221,.16);--orange:#f97316;--amber:#ffb56b;--green:#83e0b4;--red:#ff7979;--radius:22px;--max:1224px}
+    
+*{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    
+button,input,select{font:inherit}
+    button,a,input,select,summary{-webkit-tap-highlight-color:transparent}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
+    button:disabled{cursor:not-allowed;opacity:.55}
+    svg{display:block}
+    img,svg{max-width:100%}
+    button{color:inherit}
+    button,input,select{border-radius:8px}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--amber);outline-offset:5px}
+    ::selection{background:#f973164d;color:white}
+    h1,h2,h3,h4,p{margin:0}
+    h1,h2,h3,h4{line-height:1.13;letter-spacing:-.045em}
+    p{color:var(--muted)}
+    [hidden]{display:none!important}
+    .icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+    .container{width:min(var(--max),calc(100% - 80px));margin-inline:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:fixed;left:16px;top:-70px;background:var(--orange);color:var(--deep);padding:10px 18px;z-index:100;font-weight:700}
+    .skip-link:focus{top:12px}
+    
+.site-header{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:84px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:inline-flex;align-items:center;gap:10px;line-height:1.06;font-size:17px;letter-spacing:-.035em;font-weight:750;flex:none}
+    .brand-mark{display:grid;place-items:center;width:37px;height:42px;background:#f9731614;border:1px solid #f9731638;border-radius:12px;color:var(--orange)}
+    .brand-mark .icon{width:25px;height:25px}
+    .brand small{display:block;color:var(--subtle);font-size:9px;letter-spacing:.2em;margin-top:6px;font-weight:600;text-transform:uppercase}
+    .nav-actions{display:flex;align-items:center;gap:12px}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:12px;font-weight:550;color:var(--muted)}
+    .nav-links a{padding:10px 0;white-space:nowrap;transition:color .2s}
+    .nav-links a:hover{color:white}
+    .button{min-height:48px;padding:13px 22px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:13px;line-height:1.4;font-weight:750;border:1px solid transparent;border-radius:9px;transition:transform .2s,background .2s,border-color .2s}
+    .button:hover{transform:translateY(-2px)}
+    .button-primary{background:var(--orange);color:#191006;box-shadow:0 7px 28px #f9731614}
+    .button-primary:hover{background:#ff8e3c}
+    .button-secondary{background:#172237;border-color:#344158;color:#f8fafc}
+    .button-secondary:hover{background:#21304a;border-color:#75839b}
+    .button-quiet{border:1px solid var(--line);background:transparent;color:var(--muted)}
+    .button-small{padding:11px 17px;min-height:42px;font-size:12px}
+    .menu-button{display:none;background:transparent;border:1px solid var(--line);padding:9px}
+    .mobile-nav{padding:0 24px 20px;display:grid;gap:8px}
+    .mobile-nav a{padding:9px 5px;color:var(--muted)}
+    
+.footer{padding:38px 0 25px;background:var(--deep)}
+    .footer-top{display:flex;justify-content:space-between;gap:32px;align-items:center;padding-bottom:29px}
+    .footer-links{display:flex;gap:24px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+    .footer-links a:hover{color:var(--amber)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding-top:20px;font-size:9px;color:var(--subtle)}
+    .footer-bottom p{font-size:9px;color:var(--subtle)}
+    .footer-legal{border-top:1px solid var(--line);margin-top:20px;padding-top:15px}
+    .footer-legal summary{font-size:10px;color:var(--muted);cursor:pointer}
+    .legal-content{font-size:10px;color:var(--subtle);line-height:1.9;display:grid;gap:15px;padding-top:20px}
+    .legal-content h4{font-size:12px;font-weight:600;color:#d3deed;letter-spacing:0;margin-bottom:5px}
+    .legal-content a{color:var(--amber);text-decoration:underline;text-underline-offset:3px}
+    .legal-content ul{padding-left:18px;margin:6px 0}
+    .back-top{display:inline-flex;align-items:center;gap:6px}
+    .back-top .icon{width:12px;height:12px;transform:rotate(-90deg)}
+    body{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+    main{flex:1;display:grid;align-items:center}
+    .success-section{padding:90px 0;background:radial-gradient(ellipse at 50% 40%,#83e0b408,transparent 62%)}
+    .success-panel{max-width:700px;margin-inline:auto;text-align:center;padding:55px 48px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#192339,#121d31);box-shadow:0 22px 70px #0002}
+    .success-icon{display:grid;place-items:center;width:108px;height:108px;margin:0 auto 28px;border:1px solid #83e0b432;border-radius:50%;background:#83e0b40b;color:var(--green);box-shadow:0 0 50px #83e0b409}
+    .success-icon svg{width:60px;height:60px}
+    .success-title{font-size:clamp(40px,6vw,60px);font-weight:650;letter-spacing:-.055em}
+    .success-description{max-width:520px;margin:22px auto 30px;font-size:17px;line-height:1.85;text-wrap:pretty}
+    @media(max-width:1100px){.container{width:calc(100% - 48px)}.nav-links{gap:15px;font-size:11px}}
+    @media(max-width:900px){.nav-links{display:none}.menu-button{display:block}.nav-inner{height:74px;gap:15px}.nav-actions{display:flex;gap:10px;align-items:center}}
+    @media(max-width:700px){html{scroll-padding-top:95px}.container{width:calc(100% - 40px)}.nav-inner{height:72px}.brand{font-size:15px}.brand-mark{width:33px;height:37px}.brand small{font-size:7px}.nav-actions>.button{font-size:10px;min-height:37px;padding:9px 12px}.menu-button{padding:8px}.footer-top{align-items:flex-start;gap:28px;flex-direction:column}.footer-links{gap:18px;font-size:10px}.footer-bottom{align-items:flex-start;gap:12px;flex-direction:column}.footer-bottom p{font-size:9px}.footer{padding-top:30px}.success-section{padding:70px 0}.success-panel{padding:40px 24px}.success-description{font-size:15px}}
+    @media(max-width:380px){.container{width:calc(100% - 30px)}.brand{font-size:13px}.brand-mark{width:29px}.nav-inner{gap:8px}.nav-actions{gap:7px}.nav-actions>.button{padding:9px;font-size:9px}.success-panel{padding-inline:18px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.button:hover{transform:none}}
+  </style>
+  <noscript><style>.menu-button{display:none}@media(max-width:900px){#mobile-navigation[hidden]{display:grid!important}}</style></noscript>
+</head>
+<body class="antialiased" id="top">
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 5-5 6-5 11a5 5 0 0 0 10 0c0-2-1-4-2.5-5 .3 2-1 3-1 3S14 6 12 3Z"/><path d="M11 17c-1-2 1-3 1-3s3 3 1 4"/><path d="M4.5 7 3 9m16.5-2L21 9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html#top" class="brand" aria-label="Forgotten Stove home"><span class="brand-mark"><svg class="icon"><use href="#i-flame"/></svg></span><span>Forgotten Stove<small>A little more peace of mind</small></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="index.html#features">Features</a><a href="index.html#how-it-works">How It Works</a><a href="index.html#specs">Tech Specs</a><a href="index.html#housing">B2B Housing</a><a href="index.html#pricing">Pricing</a></nav>
+      <div class="nav-actions flex items-center gap-3">
+        <a class="button button-primary button-small" href="index.html#preorder" data-plan="hardware">Pre-Order Now <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <button class="menu-button" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html#features">Features</a><a href="index.html#how-it-works">How It Works</a><a href="index.html#specs">Tech Specs</a><a href="index.html#housing">B2B Housing</a><a href="index.html#pricing">Pricing</a></nav>
+  </header>
+  <main id="main">
+    <section class="success-section" aria-labelledby="success-title">
+      <div class="container">
+        <div class="success-panel">
+          <div class="success-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h1 class="success-title" id="success-title">Interest Saved.</h1>
+          <p class="success-description">Thanks for checking out Forgotten Stove. We've safely received your information and will be in touch as we launch our pilot programs.</p>
+          <a class="button button-primary" href="index.html">Return to Homepage <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container">
+    <div class="footer-top"><a href="index.html#top" class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg></span><span>Forgotten Stove<small>A little reminder. A safer kitchen.</small></span></a><nav class="footer-links" aria-label="Footer navigation"><a href="index.html#features">The product</a><a href="index.html#housing">Housing pilots</a><a href="index.html#faq">FAQs</a><a href="#privacy" data-open-legal>Privacy</a><a href="#sources" data-open-legal>Sources &amp; notes</a></nav></div>
+    <div class="footer-bottom"><p>© <span id="copyright-year">2026</span> Forgotten Stove. All rights reserved.</p><p>University venture prototype · Preparing for Louisiana Tech’s Top Dog pitch</p><a href="#top" class="back-top">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <details class="footer-legal" id="legal"><summary>Prototype status, privacy, sources and planning assumptions</summary><div class="legal-content">
+      <div><h4>Product and purchase status</h4><p>Forgotten Stove is an alert-only V1 prototype. It does not switch off appliances, detect gas leaks, guarantee fire prevention or eliminate false alerts. Always supervise cooking and maintain required smoke alarms. Under-hood installation, flame-retardant materials, the approximately 85 dB buzzer target and complete product performance need validation. No delivery date, certification, award, university endorsement or insurance eligibility is claimed. Pricing is proposed; this page takes no payments.</p></div>
+      <div id="privacy"><h4>Privacy and form submissions</h4><p>This page uses no analytics, advertising cookies or camera/microphone access. When you submit the interest form, your name, email, optional phone number, role, selected plan and contact permission are sent through FormSubmit to ahmedghazanfar1@gmail.com for Forgotten Stove follow-up. This version does not save contact details in browser storage. Submitting does not enroll you in automated SMS or create a paid order. See <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit’s privacy policy</a> for its data handling. Tailwind CSS loads from jsDelivr, which receives normal network metadata such as your IP address. Essential page styling is embedded, and form submission does not require JavaScript.</p></div>
+      <div><h4>Planning and unit economics</h4><p>Calculator defaults are hypothetical and not evidence of product effectiveness. Use incident categories that do not overlap, and replace defaults with your own data. The proposed target of up to 47% hardware gross margin at $129 implies cost of goods of $68.37 or less: (129 − 68.37) ÷ 129 = 47%. This is an unverified target, not an achieved margin, and excludes marketing, payment processing, support, overhead and other expenses not included in cost of goods. The connected plan proposes SMS routing through Twilio. Fleet features and reporting are planned, not currently validated enterprise capabilities.</p></div>
+      <div id="sources"><h4>Sources and scope · reviewed October 19, 2026</h4><ul>
+        <li><a href="https://content.nfpa.org/-/media/Project/Storefront/Catalog/Files/Research/NFPA-Research/US-Fire-Problem/Fire-causes/oscooking.pdf?rev=3cf6f13a2049402789ff1f1a6d0cb515" target="_blank" rel="noopener noreferrer" id="nfpa-source">NFPA: Home Cooking Fires, September 2023</a> — US home cooking-fire estimates for 2017–2021; not a dorm-specific or product-effectiveness study.</li>
+        <li><a href="https://iguardfire.com/product/new-iguard-for-electric-stoves-plugin-model/" target="_blank" rel="noopener noreferrer">iGuard: electric plug-in model</a> and <a href="https://iguardfire.com/faqs/" target="_blank" rel="noopener noreferrer">product FAQs</a> — motion/countdown operation and installation.</li>
+        <li><a href="https://fireavert.com/pages/home-protection" target="_blank" rel="noopener noreferrer">FireAvert: home protection</a> — smoke-alarm-triggered automatic shutoff and installation.</li>
+        <li><a href="https://cooktopsafety.com/" target="_blank" rel="noopener noreferrer">CTS Smart Stove Sensor</a> and <a href="https://cooktopsafety.com/pages/pricing" target="_blank" rel="noopener noreferrer">plans</a> — sensor, optional cutoff and subscription structure.</li>
+        <li><a href="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" target="_blank" rel="noopener noreferrer">Espressif C3 module documentation</a> · <a href="https://industrial.panasonic.com/sa/products/pt/grid-eye/models/AMG8833" target="_blank" rel="noopener noreferrer">Panasonic AMG8833 specifications</a> — component references, not finished-product certification.</li>
+      </ul><p>Competitor descriptions are based on their published materials, not independent head-to-head testing. A feature not specified in the reviewed source is not necessarily absent. All competitor names belong to their respective owners.</p></div>
+    </div></details>
+  </div></footer>
+  <script>
+    (() => {
+      'use strict';
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNavigation = document.getElementById('mobile-navigation');
+      function closeMenu() {
+        mobileNavigation.hidden = true;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+      }
+      menuToggle.addEventListener('click', () => {
+        const open = mobileNavigation.hidden;
+        mobileNavigation.hidden = !open;
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      });
+      document.querySelectorAll('#mobile-navigation a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !mobileNavigation.hidden) {
+          closeMenu();
+          menuToggle.focus();
+        }
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+      });
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+      const legal = document.getElementById('legal');
+      document.querySelectorAll('[data-open-legal]').forEach(link => {
+        link.addEventListener('click', () => { legal.open = true; });
+      });
+      if (['#privacy', '#sources'].includes(window.location.hash)) legal.open = true;
+    })();
+  </script>
+</body>
+</html>

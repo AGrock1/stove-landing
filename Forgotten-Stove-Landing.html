@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Meet Forgotten Stove: a USB-powered thermal and mmWave cooking monitor. Explore the prototype, compare options, and plan a campus housing pilot.">
+  <meta name="color-scheme" content="dark">
+  <title>Forgotten Stove — A little reminder. A safer kitchen.</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <style>
+    :root{--bg:#0f172a;--deep:#090f1d;--panel:#151f33;--panel2:#1c2840;--ink:#f8fafc;--muted:#b1bdcf;--subtle:#8493aa;--line:rgba(175,193,221,.16);--orange:#f97316;--amber:#ffb56b;--green:#83e0b4;--red:#ff7979;--radius:22px;--max:1224px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    button,input,select{font:inherit}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}svg{display:block}img,svg{max-width:100%}button{color:inherit}button,input,select{border-radius:8px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--amber);outline-offset:5px}::selection{background:#f973164d;color:white}h1,h2,h3,h4,p{margin:0}h1,h2,h3,h4{line-height:1.13;letter-spacing:-.045em}p{color:var(--muted)}[hidden]{display:none!important}.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}.container{width:min(var(--max),calc(100% - 80px));margin-inline:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;left:16px;top:-70px;background:var(--orange);color:var(--deep);padding:10px 18px;z-index:100;font-weight:700}.skip-link:focus{top:12px}
+    .site-header{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav-inner{height:84px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:inline-flex;align-items:center;gap:10px;line-height:1.06;font-size:17px;letter-spacing:-.035em;font-weight:750;flex:none}.brand-mark{display:grid;place-items:center;width:37px;height:42px;background:#f9731614;border:1px solid #f9731638;border-radius:12px;color:var(--orange)}.brand-mark .icon{width:25px;height:25px}.brand small{display:block;color:var(--subtle);font-size:9px;letter-spacing:.2em;margin-top:6px;font-weight:600;text-transform:uppercase}.nav-actions{display:flex;align-items:center;gap:12px}.nav-links{display:flex;align-items:center;gap:24px;font-size:12px;font-weight:550;color:var(--muted)}.nav-links a{padding:10px 0;white-space:nowrap;transition:color .2s}.nav-links a:hover{color:white}.button{min-height:48px;padding:13px 22px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:13px;line-height:1.4;font-weight:750;border:1px solid transparent;border-radius:9px;transition:transform .2s,background .2s,border-color .2s}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--orange);color:#191006;box-shadow:0 7px 28px #f9731614}.button-primary:hover{background:#ff8e3c}.button-secondary{background:#172237;border-color:#344158;color:#f8fafc}.button-secondary:hover{background:#21304a;border-color:#75839b}.button-quiet{border:1px solid var(--line);background:transparent;color:var(--muted)}.button-small{padding:11px 17px;min-height:42px;font-size:12px}.menu-button{display:none;background:transparent;border:1px solid var(--line);padding:9px}.mobile-nav{padding:0 24px 20px;display:grid;gap:8px}.mobile-nav a{padding:9px 5px;color:var(--muted)}
+    .eyebrow{font:650 10px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.17em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:9px}.tiny-dot{height:6px;width:6px;background:var(--orange);display:inline-block;border-radius:100%;flex:none}.section{padding:100px 0;border-top:1px solid var(--line)}.section-title{font-size:clamp(32px,4vw,47px);font-weight:620;max-width:760px;margin:15px 0 20px}.section-copy{font-size:16px;max-width:590px;line-height:1.8}.section-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:40px}.section-top .section-copy{max-width:350px;font-size:14px}.text-link{font-size:13px;color:var(--amber);display:inline-flex;align-items:center;gap:10px;font-weight:650}.text-link:hover{text-decoration:underline;text-underline-offset:5px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.tag{display:inline-flex;align-items:center;gap:7px;padding:5px 9px;border:1px solid var(--line);border-radius:5px;font-size:9px;letter-spacing:.07em;font-weight:650;text-transform:uppercase}.pill{border-radius:100px;display:inline-flex;align-items:center;gap:7px;padding:6px 10px;font-size:10px;font-weight:650}
+    .hero{padding:76px 0 56px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 82% 27%,#f9731609,transparent 46%)}.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:58px;align-items:center}.hero h1{font-size:clamp(44px,5.3vw,72px);font-weight:650;line-height:1.05;margin:27px 0 24px;letter-spacing:-.06em}.hero h1 em{font-style:normal;color:var(--orange)}.hero-description{font-size:16px;line-height:1.85;max-width:450px}.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}.hero-notes{display:flex;gap:20px;flex-wrap:wrap;margin-top:23px;color:#aab7cc;font-size:10px}.hero-notes span{display:flex;gap:6px;align-items:center}.hero-notes .icon{width:13px;height:13px;color:var(--green)}.hero-caption{font-size:10px;color:var(--subtle);margin-top:24px;max-width:445px}
+    .demo-wrap{position:relative;min-width:0}.demo-shell{border:1px solid #334058;border-radius:24px;overflow:hidden;background:#0b1424;box-shadow:0 25px 100px #0004;position:relative}.demo-topbar{display:flex;justify-content:space-between;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line);font-size:10px}.demo-topbar strong{font-weight:600;letter-spacing:.03em}.demo-topbar .tag{font-size:8px;color:var(--amber);background:#f973160a;border-color:#f9731633}.device-stage{position:relative;padding:0 10px;height:258px;background:radial-gradient(ellipse at 48% 34%,#ffffff0c,transparent 58%),linear-gradient(90deg,#ffffff02 1px,transparent 1px),linear-gradient(#ffffff02 1px,transparent 1px);background-size:auto,32px 32px,32px 32px}.device-stage>svg{width:100%;height:100%}.stage-label{position:absolute;font-size:8px;color:#8c9bb4;letter-spacing:.1em;left:20px;bottom:14px;text-transform:uppercase}.device-led{fill:var(--green);filter:drop-shadow(0 0 6px #83e0b499);transition:fill .3s}.device-stage[data-state="away"] .device-led{fill:var(--orange)}.device-stage[data-state="alarm"] .device-led{fill:var(--red);animation:indicator 1.1s infinite}.device-stage[data-state="cooling"] .device-led{fill:#9ccaff}.sensor-beam{opacity:.8;transition:opacity .5s}.device-stage[data-state="cooling"] .sensor-beam{opacity:.25}.signal-ring{transform-origin:260px 125px;animation:signal 4s ease-out infinite}.signal-ring.second{animation-delay:1.3s}.stage-status{position:absolute;right:16px;top:18px;font-size:9px;color:var(--green);border:1px solid #83e0b42b;background:#12312777;padding:6px 9px;border-radius:6px;display:flex;align-items:center;gap:6px}.stage-status .icon{width:12px;height:12px}.dashboard{background:#152034;border-top:1px solid #2e3b50;padding:18px}.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.dashboard-title{font-size:11px;font-weight:650}.dashboard-sub{font-size:8px;color:var(--subtle);margin-top:2px}.live-badge{color:var(--green);background:#83e0b40b;border:1px solid #83e0b42b}.live-badge .tiny-dot{background:var(--green);width:5px;height:5px}.telemetry-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.telemetry-card{padding:12px;border:1px solid #ffffff0c;background:#0f192c;border-radius:9px;min-width:0}.telemetry-key{font-size:8px;text-transform:uppercase;letter-spacing:.11em;color:var(--subtle);display:flex;align-items:center;gap:6px;margin-bottom:7px}.telemetry-key .icon{width:12px;height:12px;color:var(--amber)}.telemetry-value{font-size:16px;letter-spacing:-.03em;font-weight:650}.telemetry-help{font-size:9px;color:var(--subtle);margin-top:3px}.thermal-row{display:flex;justify-content:space-between;gap:10px}.heatmap{display:grid;grid-template-columns:repeat(8,1fr);width:52px;height:52px;gap:2px;flex:none}.heatmap span{border-radius:1px;transition:background .4s}.presence-wave{height:21px;width:72px;color:var(--green);margin-top:6px}.dashboard-alert{display:flex;align-items:center;gap:9px;margin-top:11px;background:#83e0b408;border:1px solid #83e0b426;color:#abe4c9;border-radius:8px;padding:10px;font-size:10px;min-height:39px}.dashboard-alert .icon{width:15px;height:15px}.dashboard-alert[data-tone="away"]{color:#ffd2a8;background:#f973160b;border-color:#f9731640}.dashboard-alert[data-tone="alarm"]{color:#ffb1b1;background:#fb6d6d0c;border-color:#fb6d6d44}.dashboard-alert[data-tone="cooling"]{color:#b9d9ff;background:#73aafa08;border-color:#73aafa30}.countdown-track{height:3px;background:#334155;border-radius:5px;margin-top:10px;overflow:hidden}.countdown-fill{height:100%;width:0;background:var(--orange);transition:width .2s linear}.demo-controls{padding:14px 18px 16px;display:flex;flex-wrap:wrap;gap:9px;justify-content:space-between;background:#111c30;border-top:1px solid var(--line)}.segmented{display:flex;gap:3px;padding:3px;background:#080f1d;border:1px solid #263249;border-radius:8px}.segmented button{font-size:9px;min-height:33px;padding:7px 10px;background:transparent;border:0;color:var(--muted);white-space:nowrap}.segmented button[aria-pressed="true"]{background:#2b3547;color:white;box-shadow:0 2px 5px #0003}.demo-select{display:flex;align-items:center;gap:7px;font-size:8px;color:var(--subtle)}.demo-select select{background:#182339;border:1px solid #334155;color:#e2e8f0;padding:7px 5px;font-size:10px;min-height:33px}.demo-foot{display:flex;justify-content:space-between;gap:8px;font-size:9px;color:var(--subtle);padding:12px 4px}.demo-foot button{border:0;background:transparent;color:var(--amber);font-size:9px;padding:0;display:inline-flex;align-items:center;gap:5px}.demo-foot .icon{width:12px;height:12px}
+    .benefit-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:64px;padding-top:28px;gap:30px}.strip-item{display:flex;align-items:center;gap:13px}.strip-item>.icon{color:var(--amber);width:24px;height:24px}.strip-item strong{font-size:12px;font-weight:600;display:block}.strip-item p{font-size:10px;margin-top:4px;color:var(--subtle)}
+    .features-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:17px}.feature{border:1px solid var(--line);border-radius:var(--radius);padding:29px;background:linear-gradient(145deg,#192339,#121d31);min-height:265px;position:relative;overflow:hidden}.feature:first-child{background:linear-gradient(140deg,#262327,#1b1f30 75%)}.feature-number{font-size:10px;color:var(--subtle);letter-spacing:.15em}.feature .icon-feature{width:40px;height:40px;margin:23px 0;color:var(--orange)}.feature h3{font-size:22px;margin-bottom:13px;font-weight:600}.feature p{font-size:13px;line-height:1.8;max-width:300px}.feature .micro-note{font-size:10px;color:var(--subtle);margin-top:16px}.orb{position:absolute;width:160px;height:160px;border:1px solid #f9731630;border-radius:50%;top:-65px;right:-65px}.orb:before,.orb:after{content:"";position:absolute;border:1px solid #f9731620;border-radius:50%;inset:20px}.orb:after{inset:40px}
+    .problem-band{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-bottom:42px}.fact{display:flex;gap:22px;align-items:center;padding:24px;border:1px solid var(--line);border-radius:16px;background:#111e32}.fact-number{font-size:57px;font-weight:650;letter-spacing:-.06em;line-height:1;color:var(--orange)}.fact p{font-size:12px;max-width:265px}.fact small{font-size:9px;display:block;color:var(--subtle);margin-top:7px}.table-wrap{border:1px solid var(--line);border-radius:18px;overflow:auto;background:#111b2d;scrollbar-color:#526078 #111b2d}.comparison{width:100%;min-width:970px;border-collapse:separate;border-spacing:0;font-size:11px;line-height:1.55;text-align:left}.comparison th,.comparison td{padding:18px 18px;border-bottom:1px solid var(--line);vertical-align:top}.comparison thead th{font-size:12px;background:#121e32;color:#e3e9f3;letter-spacing:-.02em;font-weight:650;min-width:155px}.comparison th:first-child{min-width:155px}.comparison thead small{display:block;font-size:9px;line-height:1.6;font-weight:400;color:var(--subtle);letter-spacing:0;margin-top:5px}.comparison tbody th{font-size:10px;color:var(--muted);font-weight:500}.comparison tbody td{color:#bdc9da}.comparison .ours{background:#f9731609;border-left:1px solid #f9731633;border-right:1px solid #f9731633;color:#ffe0bf}.comparison thead .ours{background:#f9731613;color:var(--amber);border-top:2px solid var(--orange)}.comparison tr:last-child>*{border-bottom:0}.check-inline{color:var(--green);font-weight:700;margin-right:4px}.source-note{font-size:10px;color:var(--subtle);line-height:1.9;margin-top:16px;max-width:1000px}.source-note a{color:#c1cde0;text-decoration:underline;text-underline-offset:3px}.scroll-note{font-size:10px;color:var(--subtle);margin:0 0 11px;display:none}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:38px;margin-top:45px}.step-art{height:175px;border:1px solid var(--line);border-radius:17px;background:#121d30;display:grid;place-items:center;margin-bottom:25px;position:relative;overflow:hidden}.step-art svg{width:90%;height:150px}.step-number{font:500 11px ui-monospace,monospace;color:var(--orange);display:flex;align-items:center;gap:10px;margin-bottom:13px}.step-number:after{content:"";height:1px;background:var(--line);width:44px}.step h3{font-size:22px;font-weight:600;margin-bottom:12px}.step p{font-size:13px;line-height:1.8}.step .step-detail{font-size:10px;color:var(--subtle);margin-top:15px}.grace-row{margin-top:35px;border:1px solid var(--line);border-radius:12px;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.grace-row p{font-size:12px}.grace-badges{display:flex;gap:9px}.grace-badges span{font-size:10px;border:1px solid #f9731630;border-radius:5px;padding:6px 12px;background:#f9731608;color:var(--amber);white-space:nowrap}
+    .housing-section{background:linear-gradient(135deg,#172139,#0f172a 67%)}.housing-grid{display:grid;grid-template-columns:1fr 1.06fr;gap:70px;align-items:center}.housing-copy .section-title{max-width:490px}.housing-list{list-style:none;padding:0;margin:28px 0 30px;display:grid;gap:19px}.housing-list li{display:flex;gap:12px;align-items:flex-start}.housing-list .icon{color:var(--amber);width:18px;height:18px;margin-top:2px}.housing-list strong{font-size:13px;display:block;font-weight:600}.housing-list p{font-size:11px;margin-top:3px}.fleet{border:1px solid #35445b;border-radius:17px;background:#101a2c;box-shadow:0 18px 60px #0002;padding:23px;transform:rotate(-1deg)}.fleet-title{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line);font-size:12px}.fleet-title .tag{font-size:8px}.fleet-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:20px 0}.fleet-metrics strong{display:block;font-size:24px;letter-spacing:-.04em;font-weight:600}.fleet-metrics span{font-size:8px;letter-spacing:.03em;color:var(--subtle)}.fleet-row{display:grid;grid-template-columns:1.5fr 1fr .6fr;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:10px}.fleet-row em{font-style:normal;color:var(--subtle);font-size:9px;text-align:right}.fleet-row .pill{font-size:8px;padding:4px 7px;justify-self:start}.status-green{background:#83e0b40c;color:var(--green)}.status-orange{background:#f9731614;color:var(--amber)}.fleet-bottom{display:flex;align-items:center;gap:7px;border-top:1px solid var(--line);padding-top:16px;font-size:9px;color:var(--subtle)}.fleet-bottom .icon{width:13px;height:13px}
+    .calculator{border:1px solid #39445a;border-radius:var(--radius);margin-top:67px;overflow:hidden;background:#0e1829}.calc-header{padding:24px 30px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:25px}.calc-header h3{font-size:20px;font-weight:600}.calc-header p{font-size:11px;margin-top:7px}.calc-body{display:grid;grid-template-columns:1.1fr 1fr}.calc-controls{padding:29px;border-right:1px solid var(--line)}.input-label{font-size:11px;font-weight:600;color:#d8e1ef;display:block;margin-bottom:8px}.field-row{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:15px}.number-box{width:95px;background:#1e2b40;border:1px solid #44536b;color:white;padding:8px 10px;font-weight:650;font-size:14px;text-align:center}.range{width:100%;accent-color:var(--orange);cursor:pointer;height:22px;margin:4px 0 0}.range-ends{display:flex;justify-content:space-between;font-size:9px;color:var(--subtle);margin:3px 0 22px}.calc-select-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}.field-input{width:100%;background:#121d30;border:1px solid #3a485f;padding:11px 12px;color:#eff4fa;font-size:12px;min-height:44px}.field-input::placeholder{color:#7c8ba4}.field-help{font-size:10px;color:var(--subtle);margin-top:7px;line-height:1.7}.calc-controls details{border-top:1px solid var(--line);margin-top:23px;padding-top:15px}.calc-controls summary{font-size:11px;color:#d1dbea;cursor:pointer;padding:3px 0}.assumption-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.assumption-grid .input-label{font-size:10px;line-height:1.5}.calc-results{padding:30px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at right top,#f973160a,transparent 60%)}.result-kicker{font-size:10px;color:var(--subtle);letter-spacing:.08em;text-transform:uppercase}.result-money{font-size:clamp(36px,4vw,53px);letter-spacing:-.06em;line-height:1.2;margin:11px 0;color:var(--amber);font-weight:600}.result-description{font-size:12px;line-height:1.7;max-width:350px}.calc-stats{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:28px 0 24px}.calc-stat{border-top:1px solid var(--line);padding-top:15px}.calc-stat strong{display:block;font-size:24px;letter-spacing:-.04em;font-weight:600}.calc-stat span{font-size:10px;color:var(--subtle);display:block;line-height:1.7;margin-top:5px}.calc-costs{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:9px}.calc-costs div{display:flex;justify-content:space-between;gap:16px;font-size:10px;color:var(--muted)}.calc-costs strong{font-weight:600;color:#e3eaf5;text-align:right}.calc-disclaimer{border-top:1px solid var(--line);padding:17px 29px;color:var(--subtle);font-size:10px;line-height:1.8}.calc-disclaimer strong{color:#d0daea;font-weight:600}
+    .spec-layout{display:grid;grid-template-columns:.9fr 1.2fr;gap:65px;align-items:start}.spec-visual{border:1px solid var(--line);background:linear-gradient(145deg,#1c283e,#10192a);border-radius:20px;margin-top:26px;padding:14px;min-height:230px;display:grid;place-items:center}.spec-visual svg{height:210px;width:100%}.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.spec-cell{padding:26px 0;border-top:1px solid var(--line)}.spec-cell>.icon{color:var(--amber);width:23px;height:23px;margin-bottom:15px}.spec-cell dt{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:8px}.spec-cell dd{margin:0;color:#f1f5f9;font-weight:600;font-size:14px}.spec-cell small{display:block;font-size:11px;font-weight:400;color:var(--muted);line-height:1.7;margin-top:6px}.spec-note{font-size:10px;line-height:1.8;margin-top:16px;color:var(--subtle)}
+    .pricing-intro{text-align:center;max-width:700px;margin:0 auto 43px}.pricing-intro .eyebrow{justify-content:center}.pricing-intro .section-title{margin-inline:auto}.pricing-intro .section-copy{margin-inline:auto;font-size:14px}.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.price-card{border:1px solid var(--line);border-radius:19px;background:#121d31;padding:28px;display:flex;flex-direction:column;position:relative}.price-card.featured{border-color:#f9731699;background:linear-gradient(155deg,#24232e,#142035 60%)}.price-card .recommended{color:#181108;background:var(--orange);font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;position:absolute;top:-11px;right:23px;padding:5px 11px;border-radius:4px}.price-card>.icon{color:var(--amber);margin-bottom:23px;width:23px;height:23px}.price-card h3{font-size:20px;font-weight:600;margin-bottom:10px}.price-subtitle{font-size:11px;min-height:38px}.price{font-size:46px;font-weight:650;letter-spacing:-.055em;margin:25px 0 3px;line-height:1.2}.price span{font-size:12px;letter-spacing:0;color:var(--subtle);font-weight:400;margin-left:6px}.price.custom{font-size:38px}.price-note{font-size:10px;color:var(--subtle);min-height:34px}.price-card ul{padding:24px 0 25px;margin:17px 0 0;border-top:1px solid var(--line);list-style:none;display:grid;gap:13px;font-size:11px;color:#c6d1e1;flex:1}.price-card li{display:flex;gap:9px;align-items:flex-start}.price-card li .icon{width:14px;height:14px;margin-top:2px;color:var(--green)}.price-card .button{width:100%;margin-top:13px}.pricing-foot{font-size:10px;color:var(--subtle);text-align:center;max-width:860px;margin:22px auto 0;line-height:1.8}
+    .faq-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.faq-list details{padding:21px 0;border-bottom:1px solid var(--line)}.faq-list details:first-child{border-top:1px solid var(--line)}.faq-list summary{cursor:pointer;font-size:14px;font-weight:550;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";font-size:23px;font-weight:300;color:var(--orange)}.faq-list details[open] summary:after{content:"−"}.faq-list details p{font-size:12px;line-height:1.9;padding:16px 28px 2px 0}
+    .signup-section{padding:86px 0;background:radial-gradient(ellipse at 10% 20%,#f973160d,transparent 50%),#10192b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.signup-layout{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}.signup-copy .section-title{font-size:clamp(36px,4vw,49px);max-width:440px}.signup-copy .section-copy{max-width:400px;font-size:14px}.signup-checks{display:grid;gap:13px;margin-top:29px;font-size:11px;color:var(--muted)}.signup-checks span{display:flex;gap:9px;align-items:center}.signup-checks .icon{width:15px;height:15px;color:var(--green)}.selected-plan{display:flex;justify-content:space-between;gap:20px;padding:13px 15px;background:#f9731609;border:1px solid #f9731633;border-radius:8px;margin-bottom:23px;font-size:11px}.selected-plan span{color:var(--muted)}.selected-plan strong{color:var(--amber);font-weight:550;text-align:right}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field-full{grid-column:1/-1}.form-note{font-size:10px;line-height:1.8;margin-top:16px;color:var(--subtle)}.consent{display:flex;align-items:flex-start;gap:10px;margin-top:21px;font-size:11px;color:var(--muted);line-height:1.7;cursor:pointer}.consent input{accent-color:var(--orange);margin-top:4px;flex:none}.form-submit{margin-top:19px;width:100%}.form-error{color:#ffadad;font-size:11px;line-height:1.8;margin-top:13px}.form-success{padding:24px;border:1px solid #83e0b449;border-radius:13px;background:#83e0b407}.form-success>.icon{color:var(--green);height:28px;width:28px;margin-bottom:15px}.form-success h3{font-size:21px;margin-bottom:12px}.form-success p{font-size:12px;line-height:1.85}.success-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:21px}
+    .footer{padding:38px 0 25px;background:var(--deep)}.footer-top{display:flex;justify-content:space-between;gap:32px;align-items:center;padding-bottom:29px}.footer-links{display:flex;gap:24px;font-size:11px;color:var(--muted);flex-wrap:wrap}.footer-links a:hover{color:var(--amber)}.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding-top:20px;font-size:9px;color:var(--subtle)}.footer-bottom p{font-size:9px;color:var(--subtle)}.footer-legal{border-top:1px solid var(--line);margin-top:20px;padding-top:15px}.footer-legal summary{font-size:10px;color:var(--muted);cursor:pointer}.legal-content{font-size:10px;color:var(--subtle);line-height:1.9;display:grid;gap:15px;padding-top:20px}.legal-content h4{font-size:12px;font-weight:600;color:#d3deed;letter-spacing:0;margin-bottom:5px}.legal-content a{color:var(--amber);text-decoration:underline;text-underline-offset:3px}.legal-content ul{padding-left:18px;margin:6px 0}.back-top{display:inline-flex;align-items:center;gap:6px}.back-top .icon{width:12px;height:12px;transform:rotate(-90deg)}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);border:1px solid #51617a;border-radius:12px;background:#1e2b41;padding:13px 20px;z-index:60;box-shadow:0 8px 40px #0004;font-size:12px;width:max-content;max-width:calc(100% - 32px)}
+    .nav-actions{display:flex;align-items:center;gap:12px}
+    @keyframes signal{0%{opacity:.6;transform:scale(.8)}100%{opacity:0;transform:scale(1.4)}}@keyframes indicator{50%{opacity:.35}}
+    @media(min-width:1500px){.hero{padding-top:90px;padding-bottom:70px}}
+    @media(max-width:1100px){.container{width:calc(100% - 48px)}.nav-links{gap:15px;font-size:11px}.hero-grid{gap:30px}.hero h1{font-size:55px}.hero-actions .button{font-size:11px;padding:12px 16px}.feature{padding:24px}.housing-grid{gap:40px}.spec-layout{gap:38px}.signup-layout{gap:50px}.section{padding:80px 0}.comparison{font-size:10px}}
+    @media(max-width:900px){.nav-links{display:none}.menu-button{display:block}.nav-inner{height:74px;gap:15px}.nav-actions{display:flex;gap:10px;align-items:center}.hero-grid{grid-template-columns:1fr 1fr;gap:24px}.hero h1{font-size:47px}.hero-description{font-size:14px}.hero-actions{gap:10px}.hero-actions .button{width:100%;justify-content:space-between}.demo-controls{padding:12px;justify-content:flex-start}.segmented button{padding:7px 9px;font-size:8px}.device-stage{height:225px}.dashboard{padding:13px}.telemetry-card{padding:9px}.telemetry-value{font-size:14px}.thermal-row{gap:5px}.heatmap{width:42px;height:42px}.hero-notes{gap:12px}.features-grid{gap:12px}.feature h3{font-size:19px}.feature{padding:21px}.benefit-strip{gap:20px}.strip-item{gap:9px}.strip-item strong{font-size:10px}.strip-item p{font-size:9px}.strip-item>.icon{width:20px;height:20px}.problem-band{gap:35px}.fact{gap:16px;padding:20px}.fact-number{font-size:45px}.scroll-note{display:block}.steps{gap:22px}.step h3{font-size:20px}.housing-grid{gap:35px}.fleet{padding:18px}.fleet-title{font-size:10px}.fleet-title .tag{font-size:7px}.fleet-row{gap:8px;font-size:9px}.calc-header{padding:22px}.calc-controls,.calc-results{padding:23px}.spec-layout{grid-template-columns:.9fr 1fr;gap:30px}.spec-grid{gap:0 20px}.price-card{padding:23px}.price-card h3{font-size:18px}.pricing-grid{gap:13px}.price-card li{font-size:10px}.faq-wrap{gap:45px}.signup-layout{gap:38px}.form-grid{gap:14px}.section-top{gap:25px}}
+    @media(max-width:700px){html{scroll-padding-top:95px}.container{width:calc(100% - 40px)}.nav-inner{height:72px}.brand{font-size:15px}.brand-mark{width:33px;height:37px}.brand small{font-size:7px}.nav-actions>.button{font-size:10px;min-height:37px;padding:9px 12px}.menu-button{padding:8px}.hero{padding-top:40px;padding-bottom:38px}.hero-grid{grid-template-columns:1fr;gap:36px}.hero h1{font-size:clamp(46px,10.9vw,67px);margin:23px 0 20px;max-width:560px}.hero-description{font-size:15px;max-width:520px}.hero-actions{flex-wrap:nowrap;margin-top:25px}.hero-actions .button{width:auto;justify-content:center;font-size:11px;flex:1;padding:13px 12px}.hero-notes{font-size:9px;gap:16px}.hero-caption{font-size:9px;margin-top:17px}.demo-wrap{max-width:560px;width:100%;margin:auto}.device-stage{height:240px}.dashboard{padding:17px}.telemetry-card{padding:12px}.telemetry-value{font-size:17px}.heatmap{height:51px;width:51px}.demo-controls{padding:13px 17px;justify-content:space-between}.segmented button{font-size:9px;padding:7px 10px}.demo-select{font-size:8px}.benefit-strip{grid-template-columns:1fr 1fr;gap:24px 16px;margin-top:33px;padding-top:27px}.strip-item strong{font-size:11px}.strip-item p{font-size:9px}.strip-item>.icon{width:22px;height:22px}.section{padding:62px 0}.section-title{font-size:35px;margin:13px 0 17px}.section-copy{font-size:14px}.section-top{display:block;margin-bottom:28px}.section-top .section-copy{max-width:500px;font-size:13px}.features-grid{grid-template-columns:1fr}.feature{min-height:0;padding:25px}.feature .icon-feature{float:left;margin:22px 20px 35px 0;width:35px;height:35px}.feature h3{font-size:22px;margin-top:20px}.feature p{max-width:none;margin-left:55px;font-size:12px}.feature .micro-note{margin-left:55px;font-size:9px}.problem-band{grid-template-columns:1fr;gap:22px}.fact{padding:22px}.fact p{max-width:none}.fact-number{font-size:54px}.comparison th,.comparison td{padding:16px}.steps{grid-template-columns:1fr;gap:34px;margin-top:30px}.step-art{height:175px;margin-bottom:20px}.step-art svg{max-width:340px}.step h3{font-size:23px}.step p{font-size:13px}.step .step-detail{margin-top:10px}.grace-row{flex-direction:column;align-items:flex-start;padding:19px}.grace-row p{font-size:11px}.housing-grid{grid-template-columns:1fr;gap:38px}.housing-copy .section-title{max-width:500px}.fleet{transform:none;padding:23px}.fleet-title{font-size:12px}.fleet-title .tag{font-size:8px}.fleet-row{font-size:11px}.fleet-metrics strong{font-size:28px}.calculator{margin-top:43px}.calc-header{display:block;padding:22px}.calc-header .tag{margin-top:14px}.calc-header h3{font-size:21px}.calc-body{grid-template-columns:1fr}.calc-controls{padding:23px;border-right:0;border-bottom:1px solid var(--line)}.calc-results{padding:25px}.result-money{font-size:48px}.calc-disclaimer{padding:18px 23px}.spec-layout{grid-template-columns:1fr;gap:27px}.spec-visual{display:none}.spec-cell{padding:22px 0}.spec-cell dd{font-size:14px}.spec-note{font-size:10px}.pricing-grid{grid-template-columns:1fr;gap:25px}.price-card{padding:29px}.price-subtitle,.price-note{min-height:0}.price-card h3{font-size:23px}.price-card>.icon{margin-bottom:17px}.price{font-size:45px;margin-top:22px}.price-card ul{gap:15px;padding:22px 0 8px;margin-top:22px}.price-card li{font-size:12px}.price-card .button{margin-top:22px}.pricing-intro{text-align:left;margin-bottom:35px}.pricing-intro .eyebrow{justify-content:flex-start}.pricing-intro .section-title,.pricing-intro .section-copy{margin-inline:0}.pricing-foot{text-align:left;font-size:10px;margin-top:22px}.faq-wrap{grid-template-columns:1fr;gap:20px}.faq-list summary{font-size:13px}.signup-section{padding:58px 0}.signup-layout{grid-template-columns:1fr;gap:32px}.signup-copy .section-title{font-size:39px}.signup-checks{margin-top:23px;gap:10px}.signup-copy .section-copy{max-width:500px}.footer-top{align-items:flex-start;gap:28px;flex-direction:column}.footer-links{gap:18px;font-size:10px}.footer-bottom{align-items:flex-start;gap:12px;flex-direction:column}.footer-bottom p{font-size:9px}.footer{padding-top:30px}}
+    @media(max-width:380px){.container{width:calc(100% - 30px)}.brand{font-size:13px}.brand-mark{width:29px}.nav-inner{gap:8px}.nav-actions{gap:7px}.nav-actions>.button{padding:9px;font-size:9px}.hero h1{font-size:44px}.hero-actions .button{font-size:10px;gap:7px;padding:13px 9px}.hero-actions .icon{width:15px;height:15px}.demo-controls{gap:9px}.demo-select{width:100%;justify-content:flex-end}.form-grid{grid-template-columns:1fr}.field-full{grid-column:auto}.calc-select-row{grid-template-columns:1fr}.hero-notes{gap:10px}.spec-grid{gap:0 16px}.stage-label{font-size:7px}.demo-foot{font-size:8px}}
+    @media(max-width:700px){.field-input{font-size:16px}.input-label{font-size:12px}.form-note{font-size:11px}.demo-select select{font-size:16px;min-height:44px}.segmented button{min-height:44px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.button:hover{transform:none}}
+    @media print{.site-header,.hero-actions,.demo-controls,.demo-foot,.signup-section,.toast{display:none!important}body{background:white;color:#172033}.section{break-inside:avoid;padding:28px 0}.container{width:100%}p{color:#42516b}.comparison{min-width:0;font-size:8px}.table-wrap{overflow:visible}.source-note{color:#42516b}.footer{background:#f4f5f7}.button{display:none}.calc-body{grid-template-columns:1fr 1fr}.legal-content{display:block}}
+  </style>
+  <noscript><style>.menu-button{display:none}@media(max-width:900px){#mobile-navigation[hidden]{display:grid!important}}</style></noscript>
+</head>
+<body class="antialiased">
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 5-5 6-5 11a5 5 0 0 0 10 0c0-2-1-4-2.5-5 .3 2-1 3-1 3S14 6 12 3Z"/><path d="M11 17c-1-2 1-3 1-3s3 3 1 4"/><path d="M4.5 7 3 9m16.5-2L21 9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 1 1-8.4 0M19 5a10 10 0 1 1-14 0m7 7 7-7"/></symbol>
+    <symbol id="i-heat" viewBox="0 0 24 24"><path d="M8 14.5V5a4 4 0 0 1 8 0v9.5a6 6 0 1 1-8 0Z"/><path d="M12 8v9"/><circle cx="12" cy="18" r="2"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0m-11 4a5 5 0 0 1 8 0"/><circle cx="12" cy="20" r=".7" fill="currentColor"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4M12 1v1"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M8 2v5m8-5v5M5 7h14v3a7 7 0 0 1-14 0V7Zm7 10v5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 5v2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3M19 9h3m-3 6h3"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V3h11v18M15 9h5v12M2 21h20M8 7h3M8 11h3M8 15h3m-3 6v-3h3v3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 5h4m-3 14h2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-magnet" viewBox="0 0 24 24"><path d="M5 3h5v10a2 2 0 0 0 4 0V3h5v10a7 7 0 0 1-14 0V3Zm0 5h5m4 0h5"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 3 9 5v10l-9 4-9-4V8l9-5Zm0 9 9-4M3 8l9 4v10M8 5l9 5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="m3 9 5 0 5-5v16l-5-5H3V9Zm13-1a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Forgotten Stove home"><span class="brand-mark"><svg class="icon"><use href="#i-flame"/></svg></span><span>Forgotten Stove<small>A little more peace of mind</small></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#features">Features</a><a href="#how-it-works">How It Works</a><a href="#specs">Tech Specs</a><a href="#housing">B2B Housing</a><a href="#pricing">Pricing</a></nav>
+      <div class="nav-actions flex items-center gap-3">
+        <a class="button button-primary button-small" href="#preorder" data-plan="hardware">Pre-Order Now <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <button class="menu-button" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#features">Features</a><a href="#how-it-works">How It Works</a><a href="#specs">Tech Specs</a><a href="#housing">B2B Housing</a><a href="#pricing">Pricing</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="tiny-dot"></span> A smarter reminder for everyday cooking</div>
+            <h1 id="hero-title">Never Forget<br>the Stove <em>Again.</em></h1>
+            <p class="hero-description">Life gets distracting. Your kitchen doesn’t have to.<br>A discreet monitor pairs thermal sensing with presence radar to remind you when hot cooking is left unattended.</p>
+            <div class="hero-actions"><a href="#preorder" data-plan="hardware" class="button button-primary">Order Hardware <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="#preorder" data-plan="enterprise" class="button button-secondary">Campus Housing Pilot</a></div>
+            <div class="hero-notes"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No stove rewiring</span><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No video recording</span><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Local alarm works offline</span></div>
+            <p class="hero-caption">V1 university venture prototype · $129 proposed hardware price.<br>Register interest today. No payment or delivery commitment.</p>
+          </div>
+          <div class="demo-wrap" aria-label="Interactive simulated product preview">
+            <div class="demo-shell">
+              <div class="demo-topbar"><strong>YOUR KITCHEN, CONNECTED.</strong><span class="tag"><span class="tiny-dot"></span> Interactive demo</span></div>
+              <div class="device-stage" id="device-stage" data-state="present">
+                <span class="stage-status"><svg class="icon" aria-hidden="true"><use href="#i-wifi"/></svg>5V USB-C · No rewiring</span>
+                <svg viewBox="0 0 520 258" role="img" aria-labelledby="device-title device-description">
+                  <title id="device-title">Forgotten Stove under-hood sensor concept</title><desc id="device-description">A compact light-colored sensor under a range hood, above a glowing cooktop. Its indicator changes with the interactive demo.</desc>
+                  <defs><linearGradient id="hood" x2="0" y2="1"><stop stop-color="#28364b"/><stop offset="1" stop-color="#111b2a"/></linearGradient><linearGradient id="case" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#fff"/><stop offset=".55" stop-color="#e3e7eb"/><stop offset="1" stop-color="#a9b4c2"/></linearGradient><linearGradient id="beam" x2="0" y2="1"><stop stop-color="#f97316" stop-opacity=".35"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></linearGradient><linearGradient id="stove" x2="0" y2="1"><stop stop-color="#25334b"/><stop offset="1" stop-color="#0c1320"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-opacity=".4"/></filter></defs>
+                  <path d="M190 0h140v42H190z" fill="url(#hood)" stroke="#35455c"/><path d="m140 42 240 0 62 35H78Z" fill="url(#hood)" stroke="#3a485c"/><path d="M78 77h364v13H78z" fill="#101826" stroke="#3c495d"/><path d="M99 84h62m198 0h62" stroke="#a9b5c5" stroke-opacity=".23" stroke-width="3"/>
+                  <path class="sensor-beam" d="m248 127-104 107h230L278 127Z" fill="url(#beam)"/>
+                  <ellipse class="signal-ring" cx="260" cy="147" rx="60" ry="17" fill="none" stroke="#f97316" stroke-opacity=".6"/><ellipse class="signal-ring second" cx="260" cy="147" rx="60" ry="17" fill="none" stroke="#f97316" stroke-opacity=".6"/>
+                  <g filter="url(#shadow)"><path d="M211 85h98v11h-98z" fill="#8592a3"/><rect x="200" y="91" width="120" height="47" rx="15" fill="#9aa6b5"/><rect x="200" y="87" width="120" height="43" rx="15" fill="url(#case)" stroke="#fff" stroke-opacity=".6"/><rect x="215" y="99" width="27" height="19" rx="5" fill="#243143"/><rect x="220" y="103" width="17" height="11" rx="3" fill="#0d1624"/><circle cx="228.5" cy="108.5" r="3.5" fill="#44291f"/><path d="M254 106h25m-25 5h18" stroke="#8b96a5" stroke-width="1.2"/><circle class="device-led" cx="301" cy="109" r="3.6"/><path d="M320 109h20q17 0 17-17V67" fill="none" stroke="#758399" stroke-width="4"/></g>
+                  <path d="m100 200 320 0 42 39H59Z" fill="url(#stove)" stroke="#344258"/><path d="M59 239h403v12H59Z" fill="#111b2c" stroke="#344258"/><ellipse cx="164" cy="215" rx="30" ry="9" fill="none" stroke="#708199" stroke-width="1.2"/><ellipse cx="355" cy="215" rx="30" ry="9" fill="none" stroke="#708199" stroke-width="1.2"/><ellipse cx="265" cy="225" rx="47" ry="12" fill="#f9731610" stroke="#f97316" stroke-width="1.8"/><ellipse cx="265" cy="225" rx="34" ry="8" fill="none" stroke="#f97316" stroke-opacity=".45"/><circle cx="211" cy="245" r="2" fill="#708199"/><circle cx="239" cy="245" r="2" fill="#708199"/><circle cx="267" cy="245" r="2" fill="#f97316"/><circle cx="295" cy="245" r="2" fill="#708199"/>
+                </svg>
+                <span class="stage-label">Concept enclosure · illustration</span>
+              </div>
+              <div class="dashboard">
+                <div class="dashboard-header"><div><div class="dashboard-title">Kitchen overview</div><div class="dashboard-sub">Forgotten Stove / demo device 01</div></div><span class="pill live-badge"><span class="tiny-dot"></span>Simulated live</span></div>
+                <div class="telemetry-grid">
+                  <div class="telemetry-card"><div class="telemetry-key"><svg class="icon" aria-hidden="true"><use href="#i-heat"/></svg>Thermal trend</div><div class="thermal-row"><div><div class="telemetry-value" id="thermal-value">Active</div><div class="telemetry-help" id="thermal-help">Heat pattern detected</div></div><div class="heatmap" id="heatmap" aria-hidden="true"></div></div></div>
+                  <div class="telemetry-card"><div class="telemetry-key"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg>Cook presence</div><div class="telemetry-value" id="presence-value">Present</div><svg class="presence-wave" viewBox="0 0 84 22" aria-hidden="true"><path id="presence-wave" d="M0 11h11l4-6 5 13 6-16 5 17 6-11 5 4h9l5-8 5 13 5-9 5 3h13" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+                  <div class="telemetry-card"><div class="telemetry-key"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Grace period</div><div class="telemetry-value" id="grace-value">30 seconds</div><div class="telemetry-help" id="grace-help">Waiting for an absence</div></div>
+                  <div class="telemetry-card"><div class="telemetry-key"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg>Alert status</div><div class="telemetry-value" id="alert-value">All clear</div><div class="telemetry-help" id="alert-help">Local + email + SMS demo</div></div>
+                </div>
+                <div class="dashboard-alert" id="dashboard-alert" data-tone="present" role="status" aria-live="polite" aria-atomic="true"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span id="demo-message">Heat detected. Cook present. Keep cooking.</span></div>
+                <div class="countdown-track" role="progressbar" aria-label="Simulated absence countdown" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="countdown-track"><div class="countdown-fill" id="countdown-fill"></div></div>
+              </div>
+              <div class="demo-controls">
+                <div class="segmented" role="group" aria-label="Choose a kitchen scenario"><button type="button" data-scenario="present" aria-pressed="true">Cook present</button><button type="button" data-scenario="away" aria-pressed="false">Step away</button><button type="button" data-scenario="cooling" aria-pressed="false">Cooling</button></div>
+                <label class="demo-select" for="grace-select">Grace <select id="grace-select"><option value="30">30 sec</option><option value="120">2 min</option><option value="300">5 min</option></select></label>
+              </div>
+            </div>
+            <div class="demo-foot"><span>Demo runs at 5× speed. No real messages are sent.</span><button id="sound-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-volume"/></svg><span id="sound-label">Sound off</span></button></div>
+          </div>
+        </div>
+        <div class="benefit-strip">
+          <div class="strip-item"><svg class="icon" aria-hidden="true"><use href="#i-magnet"/></svg><div><strong>Mount. Plug in. Monitor.</strong><p>Magnetic or adhesive mounting</p></div></div>
+          <div class="strip-item"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg><div><strong>Presence, even when still.</strong><p>24GHz micro-motion sensing</p></div></div>
+          <div class="strip-item"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><div><strong>Your kitchen stays private.</strong><p>No identifiable video or audio</p></div></div>
+          <div class="strip-item"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><div><strong>A reminder that stays local.</strong><p>No subscription for the buzzer</p></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features" aria-labelledby="features-title"><div class="container">
+      <div class="section-top"><div><div class="eyebrow">01 / A more thoughtful kitchen</div><h2 class="section-title" id="features-title">Knows the heat.<br>Notices when you leave.</h2></div><p class="section-copy">Two kinds of sensing. One clear purpose: help you catch a forgotten cooking moment sooner.</p></div>
+      <div class="features-grid">
+        <article class="feature"><span class="orb" aria-hidden="true"></span><span class="feature-number">01 — PRESENCE</span><svg class="icon icon-feature" aria-hidden="true"><use href="#i-radar"/></svg><h3>Still cooking? Still here.</h3><p>24GHz mmWave radar can pick up tiny movements, including breathing-related motion, to help recognize a cook who is standing still.</p><p class="micro-note">Detection depends on placement, distance and surroundings.</p></article>
+        <article class="feature"><span class="feature-number">02 — CONTEXT</span><svg class="icon icon-feature" aria-hidden="true"><use href="#i-grid"/></svg><h3>Heat with context.</h3><p>A 64-pixel thermal array follows the cooking area. Paired with presence sensing, it helps identify heat that has been left unattended.</p><p class="micro-note">Thermal trend, without identifiable kitchen video.</p></article>
+        <article class="feature"><span class="feature-number">03 — RESPONSE</span><svg class="icon icon-feature" aria-hidden="true"><use href="#i-bell"/></svg><h3>Here. And on your phone.</h3><p>A local buzzer gets attention in the kitchen. Email alerts are included; the optional connected plan adds SMS to selected contacts.</p><p class="micro-note">Remote alerts require internet and service availability.</p></article>
+      </div>
+    </div></section>
+    <section class="section" id="comparison" aria-labelledby="comparison-title"><div class="container">
+      <div class="problem-band"><div><div class="eyebrow">02 / The moment that matters</div><h2 class="section-title" id="comparison-title">A distraction shouldn’t<br>become an emergency.</h2><p class="section-copy">Cooking is the leading cause of reported US home fires. Forgotten Stove is designed to add an earlier reminder when heat and absence overlap.</p></div><div class="fact"><strong class="fact-number">44<span style="font-size:.5em">%</span></strong><div><p>of reported US home fires involved cooking equipment in NFPA’s 2017–2021 estimates.</p><small><a href="#sources" data-open-legal>NFPA Home Cooking Fires, September 2023 ↗</a></small></div></div></div>
+      <p class="scroll-note">Swipe the table to compare all options →</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Product comparison, scroll horizontally on small screens">
+        <table class="comparison"><caption class="sr-only">Comparison of Forgotten Stove prototype with motion-based, smoke-triggered and thermal stove safety devices.</caption>
+          <thead><tr><th scope="col">What matters</th><th scope="col" class="ours">Forgotten Stove<small>Thermal + mmWave reminder · V1</small></th><th scope="col">iGuard / iGuardStove<small>Motion + countdown cutoff</small></th><th scope="col">FireAvert<small>Smoke-alarm-triggered cutoff</small></th><th scope="col">CTS Smart Stove Sensor<small>Thermal monitoring + optional cutoff</small></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">What it responds to</th><td class="ours">Thermal pattern + cook absence</td><td>Motion absence + elapsed time</td><td>Sound of a smoke alarm</td><td>Thermal conditions; heat and motion advertised</td></tr>
+            <tr><th scope="row">Presence sensing</th><td class="ours"><span class="check-inline">✓</span>24GHz micro-motion radar</td><td>Motion sensor; mmWave not specified in reviewed page</td><td>No cook-presence sensor specified</td><td>Exact presence-sensor type not disclosed in reviewed pages</td></tr>
+            <tr><th scope="row">Connection to the stove</th><td class="ours"><span class="check-inline">✓</span>Separate 5V USB-C power; no stove-power or gas connection</td><td>Electric model connects at the range outlet</td><td>Electric model connects at the range outlet</td><td>Sensor overhead; optional cutoff connects to stove power</td></tr>
+            <tr><th scope="row">Core local function</th><td class="ours">Buzzer reminder</td><td>Automatic power shutoff</td><td>Automatic power shutoff</td><td>Voice/light alerts; automatic shutoff with cutoff</td></tr>
+            <tr><th scope="row">Monthly plan required for core local function?</th><td class="ours"><span class="check-inline">✓</span>No</td><td>No; remote features may cost extra</td><td>No for basic shutoff; monitoring plans separate</td><td>No; optional Plus plan is $59.95/year</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">Comparison reviewed October 19, 2026. Models and features vary. Plug-in cutoff products do not necessarily require rewiring. Forgotten Stove does not turn off the stove and is not a substitute for smoke alarms. Sources: <a href="https://iguardfire.com/product/new-iguard-for-electric-stoves-plugin-model/" target="_blank" rel="noopener noreferrer">iGuard</a> · <a href="https://fireavert.com/pages/home-protection" target="_blank" rel="noopener noreferrer">FireAvert</a> · <a href="https://cooktopsafety.com/pages/pricing" target="_blank" rel="noopener noreferrer">CTS plans</a> · <a href="https://cooktopsafety.com/" target="_blank" rel="noopener noreferrer">CTS sensor</a>.</p>
+    </div></section>
+    <section class="section" id="how-it-works" aria-labelledby="how-title"><div class="container">
+      <div class="eyebrow">03 / From setup to peace of mind</div><h2 class="section-title" id="how-title">Three steps. One less worry.</h2>
+      <div class="steps">
+        <article class="step"><div class="step-art" aria-hidden="true"><svg viewBox="0 0 300 150"><path d="M62 25h176l30 23H32Z" fill="#25344a" stroke="#53627a"/><path d="M32 48h236v10H32Z" fill="#0c1524" stroke="#53627a"/><path d="M113 91h74v13h-74z" fill="#9ba8ba"/><rect x="105" y="73" width="90" height="30" rx="9" fill="#e8edf2"/><rect x="117" y="81" width="17" height="11" rx="3" fill="#243449"/><circle cx="181" cy="87" r="3" fill="#f97316"/><path d="M130 68V58m40 10V58m-43 5 3-5 3 5m34 0 3-5 3 5" stroke="#ffb56b" fill="none"/><path d="M195 88h33q10 0 10 10v26" stroke="#6e809b" stroke-width="3" fill="none"/><text x="48" y="135" fill="#95a6c0" font-size="9" font-family="monospace">MAGNETIC MOUNT</text><text x="192" y="141" fill="#ffb56b" font-size="9" font-family="monospace">5V USB-C</text></svg></div><span class="step-number">01 / MOUNT</span><h3>A small addition.<br>No stove alterations.</h3><p>Attach beneath a suitable range hood with magnets or a heat-resistant adhesive mount. Plug into 5V USB-C power and aim the sensor at your cooking area.</p><p class="step-detail">Gas or electric cooking. No tools for magnetic mounting. Hood material, heat exposure and placement must be checked.</p></article>
+        <article class="step"><div class="step-art" aria-hidden="true"><svg viewBox="0 0 300 150"><circle cx="104" cy="73" r="45" fill="#f9731606" stroke="#f9731633"/><circle cx="104" cy="73" r="30" fill="none" stroke="#f973164d"/><circle cx="104" cy="73" r="14" fill="#f973161f" stroke="#f97316"/><path d="M104 73l32-32" stroke="#ffb56b"/><path d="M150 73h30" stroke="#75859f" stroke-dasharray="3 4"/><rect x="185" y="42" width="61" height="61" rx="8" fill="#17243a" stroke="#4d5e79"/><g fill="#f97316"><rect x="195" y="52" width="10" height="10" rx="2" opacity=".4"/><rect x="211" y="52" width="10" height="10" rx="2" opacity=".8"/><rect x="227" y="52" width="10" height="10" rx="2" opacity=".4"/><rect x="195" y="68" width="10" height="10" rx="2" opacity=".8"/><rect x="211" y="68" width="10" height="10" rx="2" fill="#ffd299"/><rect x="227" y="68" width="10" height="10" rx="2" opacity=".8"/><rect x="195" y="84" width="10" height="10" rx="2" opacity=".4"/><rect x="211" y="84" width="10" height="10" rx="2" opacity=".7"/><rect x="227" y="84" width="10" height="10" rx="2" opacity=".4"/></g><text x="53" y="137" fill="#95a6c0" font-size="9" font-family="monospace">PRESENCE + THERMAL CONTEXT</text></svg></div><span class="step-number">02 / SENSE</span><h3>A clearer picture<br>of the cooking moment.</h3><p>The thermal array detects heat patterns while mmWave radar checks for presence. Your selected grace period allows a short absence before a reminder.</p><p class="step-detail">Micro-motion sensing helps recognize a still cook. Presence cannot confirm someone is paying attention.</p></article>
+        <article class="step"><div class="step-art" aria-hidden="true"><svg viewBox="0 0 300 150"><rect x="177" y="17" width="66" height="117" rx="11" fill="#101b2d" stroke="#5a6c86"/><path d="M201 26h17m-15 99h14" stroke="#70839e" stroke-width="2" stroke-linecap="round"/><rect x="184" y="45" width="52" height="47" rx="6" fill="#f9731614" stroke="#f9731644"/><path d="m207 54-6 12h12l-6-12Z" fill="none" stroke="#ffb56b"/><path d="M193 77h34m-30 7h26" stroke="#8d9cb2" stroke-width="2"/><path d="M66 67a18 18 0 0 1 36 0v22H60c6-6 6-14 6-22Zm12 32h12" fill="#f973160b" stroke="#f97316" stroke-width="2"/><path d="M113 60a28 28 0 0 1 0 28m10-36a40 40 0 0 1 0 44M143 77h18" stroke="#ffb56b" fill="none" stroke-dasharray="3 4"/><text x="39" y="137" fill="#95a6c0" font-size="9" font-family="monospace">LOCAL + CLOUD</text></svg></div><span class="step-number">03 / REMIND</span><h3>Bring your attention<br>back to the kitchen.</h3><p>When the grace period expires, the local buzzer sounds and a cloud alert is initiated. Email is included; optional SMS can notify selected contacts.</p><p class="step-detail">Buzzer target: approximately 85 dB, pending measurement. Cloud delivery time depends on connectivity and providers.</p></article>
+      </div>
+      <div class="grace-row"><p><strong style="color:#e2e8f0;font-weight:550">A grace period that fits your routine.</strong> Configure it from the dashboard.</p><div class="grace-badges"><span>30 seconds</span><span>2 minutes</span><span>5 minutes</span></div></div>
+    </div></section>
+    <section class="section housing-section" id="housing" aria-labelledby="housing-title"><div class="container">
+      <div class="housing-grid">
+        <div class="housing-copy"><div class="eyebrow">04 / Campus housing &amp; property teams</div><h2 class="section-title" id="housing-title">One kitchen is personal.<br>A hundred is a priority.</h2><p class="section-copy">Explore a pilot built around the way your residents cook, your team responds, and your buildings operate.</p>
+          <ul class="housing-list"><li><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg><div><strong>Start with a building. Learn before expanding.</strong><p>Scope devices by monitored kitchen, not by resident headcount.</p></div></li><li><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><div><strong>Bring kitchen status into one view.</strong><p>Proposed fleet dashboard for multi-unit monitoring and alert routing.</p></div></li><li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><div><strong>Measure what a pilot actually changes.</strong><p>Track alert response, nuisance alerts and setup effort. Reporting is a planned fleet feature.</p></div></li></ul>
+          <a href="#preorder" data-plan="enterprise" class="text-link">Discuss a housing pilot <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="fleet" aria-label="Illustrative future fleet dashboard, not real customer data">
+          <div class="fleet-title"><strong>Housing overview</strong><span class="tag">Fleet concept · sample data</span></div>
+          <div class="fleet-metrics"><div><strong>24</strong><span>MONITORED KITCHENS</span></div><div><strong style="color:var(--green)">23</strong><span>NO ACTIVE ALERT</span></div><div><strong style="color:var(--orange)">01</strong><span>NEEDS ATTENTION</span></div></div>
+          <div class="fleet-row"><span>Residence A · Kitchen 01</span><span class="pill status-green">Cook present</span><em>Just now</em></div>
+          <div class="fleet-row"><span>Residence A · Kitchen 02</span><span class="pill status-orange">Check kitchen</span><em>Just now</em></div>
+          <div class="fleet-row"><span>Residence B · Kitchen 01</span><span class="pill status-green">Cooling</span><em>Just now</em></div>
+          <div class="fleet-row"><span>Residence B · Kitchen 02</span><span class="pill status-green">Idle</span><em>Just now</em></div>
+          <div class="fleet-bottom"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>No identifiable kitchen video. No audio recording.</div>
+        </div>
+      </div>
+      <div class="calculator" id="calculator">
+        <div class="calc-header"><div><h3>What could an earlier reminder be worth?</h3><p>Explore a planning scenario for your property. Replace the example assumptions with your own data.</p></div><span class="tag" style="color:var(--amber);border-color:#f9731640">Illustrative · not a forecast</span></div>
+        <div class="calc-body">
+          <div class="calc-controls">
+            <div class="field-row"><label class="input-label" for="property-count" id="property-count-label" style="margin:0">Number of apartment units</label><input id="property-count" class="number-box" type="number" min="1" max="10000" value="100" step="1" aria-describedby="kitchen-count-note"></div>
+            <input class="range" id="property-range" type="range" min="1" max="10000" step="1" value="100" aria-labelledby="property-count-label">
+            <div class="range-ends"><span>1</span><span>10,000</span></div>
+            <div class="calc-select-row"><div><label class="input-label" for="property-type">Count by</label><select id="property-type" class="field-input"><option value="apartments">Apartment units</option><option value="beds">Dorm beds</option></select></div><div id="beds-field" hidden><label class="input-label" for="beds-per-kitchen">Beds per shared kitchen</label><input id="beds-per-kitchen" class="field-input" type="number" min="1" max="1000" step="1" value="8"></div></div>
+            <p class="field-help" id="kitchen-count-note">100 monitored kitchens · one device per kitchen assumed.</p>
+            <details open><summary>Adjust the example assumptions</summary>
+              <div class="assumption-grid">
+                <div><label class="input-label" for="fire-rate">Cooking fires / 100 kitchens / year</label><input id="fire-rate" class="field-input" type="number" min="0" max="100" step="0.1" value="1"></div>
+                <div><label class="input-label" for="fire-reduction">Assumed fire reduction (%)</label><input id="fire-reduction" class="field-input" type="number" min="0" max="100" step="1" value="20"></div>
+                <div><label class="input-label" for="fire-loss">Average loss per fire ($)</label><input id="fire-loss" class="field-input" type="number" min="0" max="10000000" step="100" value="10000"></div>
+                <div><label class="input-label" for="dispatch-rate">False-alarm dispatches / 100 kitchens / year</label><input id="dispatch-rate" class="field-input" type="number" min="0" max="10000" step="1" value="10"></div>
+                <div><label class="input-label" for="dispatch-reduction">Assumed dispatch reduction (%)</label><input id="dispatch-reduction" class="field-input" type="number" min="0" max="100" step="1" value="20"></div>
+                <div><label class="input-label" for="dispatch-cost">Cost per dispatch ($)</label><input id="dispatch-cost" class="field-input" type="number" min="0" max="100000" step="25" value="250"></div>
+                <div><label class="input-label" for="annual-service">Annual fleet service budget ($)</label><input id="annual-service" class="field-input" type="number" min="0" max="10000000" step="100" value="0"></div>
+                <div><label class="input-label" for="setup-budget">Installation / setup budget ($)</label><input id="setup-budget" class="field-input" type="number" min="0" max="10000000" step="100" value="0"></div>
+              </div>
+              <p class="field-help">Defaults are hypothetical examples, not industry averages or measured product outcomes. A $0 service/setup input excludes those costs; it does not mean enterprise service is free.</p>
+            </details>
+            <button class="text-link" id="reset-calculator" type="button" style="background:transparent;border:0;padding:0;margin-top:18px;font-size:10px">Reset example assumptions ↺</button>
+          </div>
+          <div class="calc-results" role="region" aria-label="Calculated planning scenario">
+            <div><div class="result-kicker">Modeled annual gross avoided cost</div><div class="result-money" id="annual-savings">$2,500</div><p class="result-description">Potential avoided fire loss and false-alarm dispatch cost, if your selected assumptions hold.</p>
+              <div class="calc-stats"><div class="calc-stat"><strong id="fires-avoided">0.20</strong><span>modeled fire incidents avoided / year<br><span id="risk-reduction-label">20% assumed reduction</span></span></div><div class="calc-stat"><strong id="dispatches-avoided">2.0</strong><span>modeled false-alarm dispatches avoided / year</span></div></div>
+            </div>
+            <div class="calc-costs"><div><span>Devices at $129 list price</span><strong id="hardware-total">$12,900</strong></div><div><span>Annual benefit after service budget</span><strong id="net-benefit">$2,500</strong></div><div><span>Year-one net impact, incl. setup</span><strong id="year-one-net">−$10,400</strong></div><div><span>Illustrative year-one ROI</span><strong id="year-one-roi">−80.6%</strong></div><div><span>Simple payback</span><strong id="payback">5.2 years</strong></div></div>
+            <p class="field-help" style="margin-top:20px">Fleet pricing is custom. Bulk discounts, financing, taxes, maintenance and replacement costs are not included.</p>
+          </div>
+        </div>
+        <div class="calc-disclaimer"><strong>No measured risk-reduction claim.</strong> Savings require effective detection, delivery and a person responding. Fire and dispatch categories must not overlap in your inputs. Fire savings = kitchens ÷ 100 × annual fire rate × reduction × loss per fire. Dispatch savings use the same structure. Year-one ROI = (gross annual savings − service − hardware − setup) ÷ (hardware + setup + service). These calculations do not promise insurance savings or code compliance.</div>
+        <span id="calculator-announcement" class="sr-only" role="status" aria-live="polite"></span>
+      </div>
+    </div></section>
+    <section class="section" id="specs" aria-labelledby="specs-title"><div class="container">
+      <div class="spec-layout">
+        <div><div class="eyebrow">05 / Small device. Considered engineering.</div><h2 class="section-title" id="specs-title">Built to watch<br>the cooking moment.</h2><p class="section-copy">An ESP32-C3 at the center. Two complementary sensors. A local reminder that does not wait for the cloud.</p>
+          <div class="spec-visual" aria-hidden="true"><svg viewBox="0 0 400 210"><defs><linearGradient id="spec-case" x2=".7" y2="1"><stop stop-color="#f1f5f9"/><stop offset="1" stop-color="#b6c1d0"/></linearGradient></defs><ellipse cx="200" cy="157" rx="120" ry="18" fill="#0003"/><path d="m82 81 185-31 57 41-184 34Z" fill="url(#spec-case)" stroke="#fff" stroke-opacity=".6"/><path d="m140 125 184-34v40l-184 34Z" fill="#91a0b5"/><path d="m82 81 58 44v40l-58-44Z" fill="#c3cdd9"/><path d="m173 120 33-6v15l-33 6Z" fill="#13243a"/><ellipse cx="190" cy="123" rx="5" ry="4" fill="#664135"/><path d="m229 111 42-8m-42 13 29-5" stroke="#5e6f87" stroke-width="2"/><ellipse cx="297" cy="107" rx="3" ry="3.5" fill="#f97316"/><path d="m285 136 33 17v22m-180-35-38 18H48" stroke="#74869f" stroke-width="1" fill="none"/><text x="264" y="192" font-size="9" font-family="monospace" fill="#ffb56b">USB-C POWER</text><text x="28" y="179" font-size="9" font-family="monospace" fill="#95a6c0">COMPACT MONITOR</text></svg></div>
+          <p class="spec-note">Concept enclosure shown. Production dimensions, final materials and acoustic output will be confirmed after validation.</p>
+        </div>
+        <dl class="spec-grid">
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-chip"/></svg><dt>Microcontroller</dt><dd>ESP32-C3 RISC-V SoC<small>2.4GHz Wi-Fi 4 + Bluetooth LE</small></dd></div>
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><dt>Thermal sensor</dt><dd>AMG8833 Grid-EYE<small>64-pixel, 8 × 8 infrared matrix</small></dd></div>
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg><dt>Presence radar</dt><dd>LD2410 · 24GHz FMCW<small>Moving and stationary target sensing</small></dd></div>
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg><dt>Enclosure target</dt><dd>Flame-retardant 3D print<small>Magnetic mount; material and complete assembly validation pending</small></dd></div>
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg><dt>Power</dt><dd>5V / 1A USB-C<small>External plug-in supply; no stove wiring</small></dd></div>
+          <div class="spec-cell"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><dt>Alerts</dt><dd>Local buzzer + cloud<small>~85 dB design target; email and optional SMS</small></dd></div>
+        </dl>
+      </div>
+    </div></section>
+    <section class="section" id="pricing" aria-labelledby="pricing-title"><div class="container">
+      <div class="pricing-intro"><div class="eyebrow">06 / Simple by design</div><h2 class="section-title" id="pricing-title">Buy the hardware.<br>Choose your connection.</h2><p class="section-copy">Local reminders and email alerts are included in the proposed base plan. Add SMS when another person should be in the loop.</p></div>
+      <div class="pricing-grid">
+        <article class="price-card"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><h3>Individual Cook / Dorm Kit</h3><p class="price-subtitle">One device for the kitchen you use every day.</p><div class="price">$129<span>one-time</span></div><p class="price-note">Proposed hardware price · before shipping and tax</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Thermal + mmWave safety monitor</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Local buzzer with no subscription</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Included email alerts over Wi-Fi</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Web dashboard and grace settings</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Magnetic / adhesive mounting design</li></ul><a href="#preorder" data-plan="hardware" class="button button-secondary">Order Hardware <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+        <article class="price-card featured"><span class="recommended">For a little extra connection</span><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><h3>Connected Caregiver</h3><p class="price-subtitle">Keep selected contacts closer to the kitchen.</p><div class="price">$39<span>/ year</span></div><p class="price-note">Optional add-on · hardware purchased separately</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Everything in the base experience</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SMS alerts when a reminder triggers</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Multi-contact notifications</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Email remains included</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Local buzzer continues if you cancel</li></ul><a href="#preorder" data-plan="connected" class="button button-primary">Add Connected Alerts <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+        <article class="price-card"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg><h3>University / Housing Fleet</h3><p class="price-subtitle">Build a measured pilot for multiple kitchens.</p><div class="price custom">Let’s talk<span>custom pricing</span></div><p class="price-note">Bulk hardware + proposed fleet service</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Bulk hardware and pilot scoping</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planned multi-unit cloud dashboard</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planned team notification routing</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planned activity and incident reporting</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reporting needs reviewed with your team</li></ul><a href="#preorder" data-plan="enterprise" class="button button-secondary">Explore a Housing Pilot <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+      </div>
+      <p class="pricing-foot">V1 proposal, not an offer for immediate shipment. Email and SMS require internet and supported services. SMS regions, usage allowance and final plan terms will be confirmed before purchase. Enterprise reporting does not certify insurance or fire-code compliance.</p>
+    </div></section>
+    <section class="section" id="faq" aria-labelledby="faq-title"><div class="container faq-wrap">
+      <div><div class="eyebrow">A few good questions</div><h2 class="section-title" id="faq-title">Know what<br>you’re bringing home.</h2></div>
+      <div class="faq-list">
+        <details><summary>Does Forgotten Stove turn off the stove?</summary><p>No. This V1 monitors heat and presence, sounds a local reminder and initiates remote alerts. Someone must respond and turn off the stove if necessary. It does not replace a smoke alarm, supervision or an automatic shutoff system.</p></details>
+        <details><summary>What happens if the Wi-Fi goes down?</summary><p>The powered device’s local sensing and buzzer are designed to operate independently of the cloud. Email, SMS and remote dashboard updates need an internet connection and working online services. The device requires its USB power supply; this design does not claim battery backup.</p></details>
+        <details><summary>Will it work with my range hood and stove?</summary><p>The sensing approach can be used above gas or electric cooking without connecting to the stove’s electrical circuit or gas line. Installation depends on hood material, available space, safe heat exposure and sensor coverage. Magnets require a suitable magnetic surface; other installations need an appropriate heat-resistant adhesive mount. Universal fit has not been established.</p></details>
+        <details><summary>Will standing still trigger an alert?</summary><p>mmWave radar can detect small movements that a basic motion detector may miss, including breathing-related motion. It helps recognize stationary presence, but cannot guarantee zero false alerts. Placement, distance, obstructions and other people in the detection area affect performance.</p></details>
+        <details><summary>What does “cooling” mean in the dashboard?</summary><p>Cooling is a thermal-trend display. It is not confirmation that the stove is off. A falling temperature does not by itself silence an unattended-hot-stove alarm. In the interactive preview, the Cooling scenario represents a cook returning while the thermal trend falls.</p></details>
+        <details><summary>Is this a finished, certified safety product?</summary><p>This is a university venture prototype being prepared for a Top Dog competition pitch at Louisiana Tech University. Product testing, installation validation, acoustic measurements and any applicable approvals remain future work. The university reference is project context, not an endorsement or award claim.</p></details>
+      </div>
+    </div></section>
+    <section class="signup-section" id="preorder" aria-labelledby="signup-title"><div class="container signup-layout">
+      <div class="signup-copy"><div class="eyebrow"><span class="tiny-dot"></span> Built for the moments life interrupts</div><h2 class="section-title" id="signup-title">Make room for<br>a little peace of mind.</h2><p class="section-copy">Interested in your own kitchen—or a whole residence hall? Tell us which experience you’d like to explore.</p><div class="signup-checks"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No payment today</span><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hardware interest and housing pilots</span><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Local reminders stay subscription-free</span></div></div>
+      <div>
+        <div class="selected-plan"><span>You’re exploring</span><strong id="selected-plan-label">Hardware · $129 proposed</strong></div>
+        <form id="lead-form" action="https://formsubmit.co/ahmedghazanfar1@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://ahmedghazanfar.com/thanks.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Forgotten Stove Pre-Order/Interest!">
+          <input type="hidden" id="selected-plan" name="plan" value="hardware">
+          <div class="form-grid">
+            <div class="field-full">
+              <label class="input-label" for="lead-name">Full name <span aria-hidden="true">*</span></label>
+              <input id="lead-name" class="field-input" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required>
+            </div>
+            <div>
+              <label class="input-label" for="lead-email">Email <span aria-hidden="true">*</span></label>
+              <input id="lead-email" class="field-input" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required>
+            </div>
+            <div>
+              <label class="input-label" for="lead-phone">Phone <span style="color:var(--subtle);font-weight:400">(optional)</span></label>
+              <input id="lead-phone" class="field-input" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" aria-describedby="phone-note">
+            </div>
+            <div class="field-full">
+              <label class="input-label" for="lead-role">I’m interested as a…</label>
+              <select id="lead-role" class="field-input" name="role">
+                <option value="Student / Home Cook">Student / Home Cook</option>
+                <option value="Property Manager">Property Manager</option>
+                <option value="Senior Living Director">Senior Living Director</option>
+                <option value="University / Campus Housing">University / Campus Housing</option>
+              </select>
+            </div>
+          </div>
+          <p class="field-help" id="phone-note">For a future follow-up only. This form does not enroll you in automated SMS.</p>
+          <label class="consent">
+            <input id="lead-consent" name="contact_permission" type="checkbox" value="yes" required>
+            <span>I agree to be contacted about Forgotten Stove and understand that FormSubmit processes this submission. <a href="#privacy" data-open-legal style="text-decoration:underline">Privacy details</a>.</span>
+          </label>
+          <button type="submit" id="lead-submit" class="button button-primary form-submit">
+            Submit Pre-Order Interest <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="form-note" id="capture-notice">Your details are sent to the Forgotten Stove team through FormSubmit. After submission, you’ll be redirected to our thank-you page. No payment, order or reservation is created.</p>
+        </form>
+      </div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container">
+    <div class="footer-top"><a href="#top" class="brand"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg></span><span>Forgotten Stove<small>A little reminder. A safer kitchen.</small></span></a><nav class="footer-links" aria-label="Footer navigation"><a href="#features">The product</a><a href="#housing">Housing pilots</a><a href="#faq">FAQs</a><a href="#privacy" data-open-legal>Privacy</a><a href="#sources" data-open-legal>Sources &amp; notes</a></nav></div>
+    <div class="footer-bottom"><p>© <span id="copyright-year">2026</span> Forgotten Stove. All rights reserved.</p><p>University venture prototype · Preparing for Louisiana Tech’s Top Dog pitch</p><a href="#top" class="back-top">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <details class="footer-legal" id="legal"><summary>Prototype status, privacy, sources and planning assumptions</summary><div class="legal-content">
+      <div><h4>Product and purchase status</h4><p>Forgotten Stove is an alert-only V1 prototype. It does not switch off appliances, detect gas leaks, guarantee fire prevention or eliminate false alerts. Always supervise cooking and maintain required smoke alarms. Under-hood installation, flame-retardant materials, the approximately 85 dB buzzer target and complete product performance need validation. No delivery date, certification, award, university endorsement or insurance eligibility is claimed. Pricing is proposed; this page takes no payments.</p></div>
+      <div id="privacy"><h4>Privacy and form submissions</h4><p>This page uses no analytics, advertising cookies or camera/microphone access. When you submit the interest form, your name, email, optional phone number, role, selected plan and contact permission are sent through FormSubmit to ahmedghazanfar1@gmail.com for Forgotten Stove follow-up. This version does not save contact details in browser storage. Submitting does not enroll you in automated SMS or create a paid order. See <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit’s privacy policy</a> for its data handling. Tailwind CSS loads from jsDelivr, which receives normal network metadata such as your IP address. Essential page styling is embedded, and form submission does not require JavaScript.</p></div>
+      <div><h4>Planning and unit economics</h4><p>Calculator defaults are hypothetical and not evidence of product effectiveness. Use incident categories that do not overlap, and replace defaults with your own data. The proposed target of up to 47% hardware gross margin at $129 implies cost of goods of $68.37 or less: (129 − 68.37) ÷ 129 = 47%. This is an unverified target, not an achieved margin, and excludes marketing, payment processing, support, overhead and other expenses not included in cost of goods. The connected plan proposes SMS routing through Twilio. Fleet features and reporting are planned, not currently validated enterprise capabilities.</p></div>
+      <div id="sources"><h4>Sources and scope · reviewed October 19, 2026</h4><ul>
+        <li><a href="https://content.nfpa.org/-/media/Project/Storefront/Catalog/Files/Research/NFPA-Research/US-Fire-Problem/Fire-causes/oscooking.pdf?rev=3cf6f13a2049402789ff1f1a6d0cb515" target="_blank" rel="noopener noreferrer" id="nfpa-source">NFPA: Home Cooking Fires, September 2023</a> — US home cooking-fire estimates for 2017–2021; not a dorm-specific or product-effectiveness study.</li>
+        <li><a href="https://iguardfire.com/product/new-iguard-for-electric-stoves-plugin-model/" target="_blank" rel="noopener noreferrer">iGuard: electric plug-in model</a> and <a href="https://iguardfire.com/faqs/" target="_blank" rel="noopener noreferrer">product FAQs</a> — motion/countdown operation and installation.</li>
+        <li><a href="https://fireavert.com/pages/home-protection" target="_blank" rel="noopener noreferrer">FireAvert: home protection</a> — smoke-alarm-triggered automatic shutoff and installation.</li>
+        <li><a href="https://cooktopsafety.com/" target="_blank" rel="noopener noreferrer">CTS Smart Stove Sensor</a> and <a href="https://cooktopsafety.com/pages/pricing" target="_blank" rel="noopener noreferrer">plans</a> — sensor, optional cutoff and subscription structure.</li>
+        <li><a href="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" target="_blank" rel="noopener noreferrer">Espressif C3 module documentation</a> · <a href="https://industrial.panasonic.com/sa/products/pt/grid-eye/models/AMG8833" target="_blank" rel="noopener noreferrer">Panasonic AMG8833 specifications</a> — component references, not finished-product certification.</li>
+      </ul><p>Competitor descriptions are based on their published materials, not independent head-to-head testing. A feature not specified in the reviewed source is not necessarily absent. All competitor names belong to their respective owners.</p></div>
+    </div></details>
+  </div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p style="background:#263246;color:white;padding:18px;text-align:center">JavaScript is disabled. Product information and source links remain available. The interest form still works. Enable JavaScript to use the interactive demo and calculator.</p></noscript>
+  <script>
+    'use strict';
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const all = (selector) => Array.from(document.querySelectorAll(selector));
+      const clamp = (value, min, max, fallback) => {
+        const n = Number(value);
+        return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : fallback;
+      };
+      const money = (value) => new Intl.NumberFormat('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
+      let toastTimer;
+      function toast(message) {
+        $('toast').textContent = message; $('toast').hidden = false;
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => { $('toast').hidden = true; }, 4500);
+      }
+      $('copyright-year').textContent = String(new Date().getFullYear());
+
+      const menuToggle = $('menu-toggle');
+      function closeMenu() {
+        $('mobile-navigation').hidden = true;
+        menuToggle.setAttribute('aria-expanded','false');
+        menuToggle.setAttribute('aria-label','Open navigation');
+      }
+      menuToggle.addEventListener('click', () => {
+        const opening = menuToggle.getAttribute('aria-expanded') !== 'true';
+        $('mobile-navigation').hidden = !opening;
+        menuToggle.setAttribute('aria-expanded',String(opening));
+        menuToggle.setAttribute('aria-label',opening ? 'Close navigation' : 'Open navigation');
+      });
+      all('#mobile-navigation a').forEach(link => link.addEventListener('click',closeMenu));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && ! $('mobile-navigation').hidden) { closeMenu(); menuToggle.focus(); }
+      });
+      window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+      all('[data-open-legal]').forEach(link => link.addEventListener('click', () => { $('legal').open = true; }));
+      if (['#privacy','#sources'].includes(window.location.hash)) $('legal').open = true;
+
+      // Demo data is wholly simulated. No Firebase, SMS or real sensor calls are made.
+      const heatCells = [];
+      for (let i=0; i<64; i++) {
+        const cell = document.createElement('span');
+        $('heatmap').appendChild(cell); heatCells.push(cell);
+      }
+      function drawHeatmap(cooling) {
+        const palette = cooling ? ['#20314e','#2b4261','#3e5d7b','#5b7994','#7a98ac'] : ['#32253a','#6f3432','#b74b28','#ee7a28','#ffc66f'];
+        heatCells.forEach((cell, i) => {
+          const x = i%8, y = Math.floor(i/8);
+          const d = Math.min(Math.hypot(x-2.1,y-2.5), Math.hypot(x-5.5,y-5));
+          cell.style.backgroundColor = palette[Math.max(0, Math.min(4, Math.floor(4.5-d*1.15)))];
+        });
+      }
+      let scenario='present', grace=30, elapsed=0, demoInterval=null, lastTick=0, soundEnabled=false, audioContext=null, lastMessage='';
+      const speed=5;
+      function stopDemoTimer() {
+        if (demoInterval !== null) { window.clearInterval(demoInterval); demoInterval=null; }
+      }
+      function playChime() {
+        if (!soundEnabled) return;
+        try {
+          if (!audioContext) return;
+          [0,.22,.44].forEach(offset => {
+            const oscillator=audioContext.createOscillator(), gain=audioContext.createGain(), start=audioContext.currentTime+offset;
+            oscillator.type='sine'; oscillator.frequency.value=880;
+            gain.gain.setValueAtTime(0,start); gain.gain.linearRampToValueAtTime(.045,start+.015); gain.gain.exponentialRampToValueAtTime(.0001,start+.15);
+            oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(start); oscillator.stop(start+.18);
+          });
+        } catch { toast('The browser could not play the demo chime. Visual alerts remain active.'); }
+      }
+      function paintDemo() {
+        const alarm = scenario === 'away' && elapsed >= grace;
+        const cooling = scenario === 'cooling';
+        const tone = alarm ? 'alarm' : scenario;
+        const remaining = Math.max(0, Math.ceil(grace-elapsed));
+        $('device-stage').dataset.state=tone;
+        $('thermal-value').textContent=cooling ? 'Cooling' : 'Active';
+        $('thermal-help').textContent=cooling ? 'Heat trend falling' : 'Heat pattern detected';
+        $('presence-value').textContent=scenario==='away' ? 'Away' : 'Present';
+        $('presence-wave').setAttribute('d',scenario==='away' ? 'M0 11h84' : 'M0 11h11l4-6 5 13 6-16 5 17 6-11 5 4h9l5-8 5 13 5-9 5 3h13');
+        $('presence-wave').style.stroke=scenario==='away' ? '#ffb56b' : '#83e0b4';
+        $('grace-value').textContent=grace===30 ? '30 seconds' : (grace/60)+' minutes';
+        $('grace-help').textContent=scenario==='away' ? (alarm ? 'Grace period expired' : remaining+'s remaining · 5× demo') : 'Waiting for an absence';
+        $('alert-value').textContent=alarm ? 'Check kitchen' : (scenario==='away' ? 'Counting down' : 'All clear');
+        $('alert-value').style.color=alarm ? '#ff9c9c' : (scenario==='away' ? '#ffb56b' : '#f8fafc');
+        $('alert-help').textContent=alarm ? 'Buzzer + cloud alert simulated' : 'Local + email + SMS demo';
+        $('dashboard-alert').dataset.tone=tone;
+        const message=alarm ? 'Local buzzer active. Email + SMS alert simulated.' : scenario==='away' ? 'Cook away. The grace-period countdown has started.' : cooling ? 'Cook returned. Thermal trend is cooling.' : 'Heat detected. Cook present. Keep cooking.';
+        if (message!==lastMessage) { $('demo-message').textContent=message; lastMessage=message; }
+        const progress=scenario==='away' ? Math.min(100,elapsed/grace*100) : 0;
+        $('countdown-fill').style.width=progress+'%';
+        $('countdown-track').setAttribute('aria-valuenow',String(Math.round(progress)));
+        all('[data-scenario]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.scenario===scenario)));
+      }
+      function advanceDemo(seconds) {
+        if (scenario!=='away' || elapsed>=grace) return;
+        elapsed=Math.min(grace,elapsed+Math.max(0,seconds));
+        if (elapsed>=grace) { stopDemoTimer(); playChime(); }
+        paintDemo();
+      }
+      function startScenario(next) {
+        if (!['present','away','cooling'].includes(next)) return;
+        stopDemoTimer(); scenario=next; elapsed=0; drawHeatmap(next==='cooling'); paintDemo();
+        if (next==='away') {
+          lastTick=performance.now();
+          demoInterval=window.setInterval(() => {
+            const now=performance.now();
+            const seconds=(now-lastTick)/1000; lastTick=now;
+            if (!document.hidden) advanceDemo(seconds*speed);
+          },200);
+        }
+      }
+      all('[data-scenario]').forEach(button => button.addEventListener('click', () => startScenario(button.dataset.scenario)));
+      $('grace-select').addEventListener('change', () => { grace=Number($('grace-select').value); startScenario(scenario); });
+      document.addEventListener('visibilitychange', () => { lastTick=performance.now(); });
+      $('sound-toggle').addEventListener('click', async () => {
+        if (soundEnabled) {
+          soundEnabled=false; $('sound-toggle').setAttribute('aria-pressed','false'); $('sound-label').textContent='Sound off'; return;
+        }
+        const AudioAPI=window.AudioContext || window.webkitAudioContext;
+        if (!AudioAPI) { toast('Demo audio is unavailable in this browser. Visual alerts still work.'); return; }
+        try {
+          audioContext=audioContext || new AudioAPI();
+          if (audioContext.state==='suspended') await audioContext.resume();
+          soundEnabled=true; $('sound-toggle').setAttribute('aria-pressed','true'); $('sound-label').textContent='Sound on';
+          toast('Quiet demo chime enabled. This does not represent the hardware buzzer volume.');
+        } catch { toast('Audio permission was not available. Visual alerts still work.'); }
+      });
+      startScenario('present');
+
+      // Explicit planning assumptions. These are not measured incidence or efficacy data.
+      const defaults={count:100,type:'apartments',beds:8,fireRate:1,fireReduction:20,fireLoss:10000,dispatchRate:10,dispatchReduction:20,dispatchCost:250,service:0,setup:0};
+      const fields={count:'property-count',type:'property-type',beds:'beds-per-kitchen',fireRate:'fire-rate',fireReduction:'fire-reduction',fireLoss:'fire-loss',dispatchRate:'dispatch-rate',dispatchReduction:'dispatch-reduction',dispatchCost:'dispatch-cost',service:'annual-service',setup:'setup-budget'};
+      function calculateScenario(input) {
+        const count=Math.round(clamp(input.count,1,10000,100));
+        const beds=Math.round(clamp(input.beds,1,1000,8));
+        const kitchens=input.type==='beds' ? Math.ceil(count/beds) : count;
+        const fires=kitchens/100*clamp(input.fireRate,0,100,1)*clamp(input.fireReduction,0,100,20)/100;
+        const dispatches=kitchens/100*clamp(input.dispatchRate,0,10000,10)*clamp(input.dispatchReduction,0,100,20)/100;
+        const gross=fires*clamp(input.fireLoss,0,10000000,10000)+dispatches*clamp(input.dispatchCost,0,100000,250);
+        const hardware=kitchens*129, service=clamp(input.service,0,10000000,0), setup=clamp(input.setup,0,10000000,0);
+        const netAnnual=gross-service, firstYear=gross-service-hardware-setup, investment=hardware+setup+service;
+        return {count,beds,kitchens,fires,dispatches,gross,hardware,service,setup,netAnnual,firstYear,roi:investment>0 ? firstYear/investment*100 : null,payback:netAnnual>0 ? (hardware+setup)/netAnnual : null};
+      }
+      let announceTimer=null;
+      function updateCalculator(announce=true) {
+        const input={};
+        Object.entries(fields).forEach(([key,id])=> { input[key]=$(id).value; });
+        const result=calculateScenario(input);
+        const isBeds=input.type==='beds';
+        $('beds-field').hidden=!isBeds;
+        $('property-count-label').textContent=isBeds ? 'Number of dorm beds' : 'Number of apartment units';
+        $('property-range').value=String(result.count);
+        $('kitchen-count-note').textContent=result.kitchens.toLocaleString('en-US')+' monitored kitchen'+(result.kitchens===1 ? '' : 's')+(isBeds ? ' · '+result.beds+' beds per kitchen, rounded up.' : ' · one device per kitchen assumed.');
+        $('annual-savings').textContent=money(result.gross);
+        $('fires-avoided').textContent=result.fires.toFixed(2);
+        $('risk-reduction-label').textContent=clamp(input.fireReduction,0,100,20)+'% assumed reduction';
+        $('dispatches-avoided').textContent=result.dispatches.toFixed(1);
+        $('hardware-total').textContent=money(result.hardware);
+        $('net-benefit').textContent=money(result.netAnnual);
+        $('year-one-net').textContent=money(result.firstYear);
+        $('year-one-roi').textContent=result.roi===null ? 'Not calculable' : result.roi.toFixed(1)+'%';
+        $('payback').textContent=result.payback===null ? 'No payback in this scenario' : (result.payback<.1 ? '<0.1' : result.payback.toFixed(1))+' years';
+        if (announce) {
+          window.clearTimeout(announceTimer);
+          announceTimer=window.setTimeout(() => { $('calculator-announcement').textContent=result.kitchens+' kitchens. Modeled annual gross avoided cost '+money(result.gross)+'. Year-one net impact '+money(result.firstYear)+'. Assumptions are unverified.'; },500);
+        }
+        return result;
+      }
+      Object.values(fields).forEach(id => {
+        $(id).addEventListener('input',()=>updateCalculator());
+        $(id).addEventListener('change',()=>{
+          if ($(id).type==='number') {
+            const min=Number($(id).min), max=Number($(id).max);
+            const fallback=Object.entries(fields).find(([,value])=>value===id)[0];
+            let value=clamp($(id).value,min,max,defaults[fallback]);
+            if ($(id).step==='1') value=Math.round(value);
+            $(id).value=String(value);
+          }
+          updateCalculator();
+        });
+      });
+      $('property-range').addEventListener('input',()=>{ $('property-count').value=$('property-range').value; updateCalculator(); });
+      $('reset-calculator').addEventListener('click',()=>{
+        Object.entries(fields).forEach(([key,id])=>{ $(id).value=String(defaults[key]); });
+        updateCalculator(); toast('Example assumptions restored.');
+      });
+      updateCalculator(false);
+
+      // Keep plan selection; the browser handles validation and native POST submission.
+      const planNames = {
+        hardware: 'Hardware · $129 proposed',
+        connected: 'Hardware + Connected · $39/year add-on',
+        enterprise: 'University / housing pilot · custom pricing'
+      };
+      function selectPlan(plan) {
+        if (!Object.prototype.hasOwnProperty.call(planNames, plan)) return;
+        $('selected-plan').value = plan;
+        $('selected-plan-label').textContent = planNames[plan];
+        if (plan === 'enterprise') $('lead-role').value = 'University / Campus Housing';
+      }
+      all('[data-plan]').forEach(link => {
+        link.addEventListener('click', () => selectPlan(link.dataset.plan));
+      });
+      // Small public, read-only test surface for verifying the standalone file without a server.
+      window.ForgottenStove=Object.freeze({
+        calculateScenario,
+        getDemoState:()=>Object.freeze({scenario,grace,elapsed,alarm:scenario==='away'&&elapsed>=grace}),
+        advanceDemo
+      });
+      window.addEventListener('pagehide',()=>{ stopDemoTimer(); if (audioContext) audioContext.close().catch(()=>{}); });
+      window.addEventListener('pageshow',event=>{ if (event.persisted) { audioContext=null; soundEnabled=false; $('sound-toggle').setAttribute('aria-pressed','false'); $('sound-label').textContent='Sound off'; startScenario('present'); } });
+    })();
+  </script>
+</body>
+</html>
